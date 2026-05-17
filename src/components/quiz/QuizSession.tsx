@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -28,6 +29,7 @@ export function QuizSession({ category }: QuizSessionProps) {
   useEffect(() => {
     async function loadQuiz() {
       setLoading(true);
+      // Using the singleton service instance
       const data = await questionService.getQuestions(category);
       setQuestions(data);
       setLoading(false);
