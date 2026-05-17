@@ -1,6 +1,9 @@
 
 import { generatePracticeQuestions, type GeneratePracticeQuestionsOutput } from "@/ai/flows/generate-practice-questions";
 
+// Import pre-defined quiz data
+import justiceQuiz from "@/data/quizzes/math/2024-01-07-justice.json";
+
 /**
  * Singleton QuestionService to manage and provide questions for the app.
  * Acts as a central factory for quiz data across all categories.
@@ -8,58 +11,14 @@ import { generatePracticeQuestions, type GeneratePracticeQuestionsOutput } from 
 class QuestionService {
   private static instance: QuestionService;
   
-  private dummyData: Record<string, GeneratePracticeQuestionsOutput> = {
-    math: [
-      {
-        questionText: "Quelle est la juridiction compétente pour le contentieux administratif en premier ressort ?",
-        options: { A: "Le Tribunal de Grande Instance", B: "Le Tribunal Administratif", C: "La Cour d'Appel", D: "Le Conseil d'État" },
-        correctAnswer: "B"
-      },
-      {
-        questionText: "Qui est le chef du parquet dans un tribunal de grande instance ?",
-        options: { A: "Le Procureur de la République", B: "Le Juge d'Instruction", C: "Le Président du Tribunal", D: "L'Huissier" },
-        correctAnswer: "A"
-      },
-      {
-        questionText: "Quel est l'âge minimum pour être juré d'assises ?",
-        options: { A: "18 ans", B: "21 ans", C: "23 ans", D: "25 ans" },
-        correctAnswer: "C"
-      },
-      {
-        questionText: "Sous quelle autorité sont placés les magistrats du parquet ?",
-        options: { A: "Le Conseil Supérieur de la Magistrature", B: "Le Garde des Sceaux", C: "Le Premier Ministre", D: "Le Président de la République" },
-        correctAnswer: "B"
-      },
-      {
-        questionText: "Quelle est la peine maximale pour un crime ?",
-        options: { A: "20 ans", B: "30 ans", C: "Réclusion criminelle à perpétuité", D: "10 ans" },
-        correctAnswer: "C"
-      }
-    ],
-    physics: [
-      {
-        questionText: "What is the unit of force in the International System of Units (SI)?",
-        options: { A: "Watt", B: "Joule", C: "Newton", D: "Pascal" },
-        correctAnswer: "C"
-      },
-      {
-        questionText: "What is the speed of light in a vacuum?",
-        options: { A: "300,000 km/s", B: "150,000 km/s", C: "1,000,000 km/s", D: "500,000 km/s" },
-        correctAnswer: "A"
-      }
-    ],
-    history: [
-      {
-        questionText: "In which year did World War II end?",
-        options: { A: "1943", B: "1944", C: "1945", D: "1946" },
-        correctAnswer: "C"
-      },
-      {
-        questionText: "Who was the first President of the United States?",
-        options: { A: "Thomas Jefferson", B: "Abraham Lincoln", C: "George Washington", D: "John Adams" },
-        correctAnswer: "C"
-      }
-    ]
+  // Registry of available local concours files
+  private localQuizzes: Record<string, any[]> = {
+    math: [justiceQuiz],
+    physics: [],
+    history: [],
+    biology: [],
+    literature: [],
+    chemistry: []
   };
 
   private constructor() {}
@@ -73,9 +32,21 @@ class QuestionService {
 
   /**
    * Fetches questions for a specific category.
-   * Uses AI generation if possible, otherwise falls back to static dummy data.
+   * Prefers local JSON files (concours records) if available, 
+   * otherwise falls back to AI generation or generic dummy data.
    */
   public async getQuestions(category: string, count: number = 5): Promise<GeneratePracticeQuestionsOutput> {
+    const categoryLower = category.toLowerCase();
+
+    // 1. Check if we have a specific local concours for this category
+    const localConcours = this.localQuizzes[categoryLower];
+    if (localConcours && localConcours.length > 0) {
+      // Return the latest concours by date (sorted in JSON folder)
+      // For now, return the first one as an example
+      return localConcours[0].questions;
+    }
+
+    // 2. Fallback to AI generation
     try {
       const data = await generatePracticeQuestions({
         concoursCategory: category,
@@ -88,20 +59,26 @@ class QuestionService {
       }
       throw new Error("No data returned from AI");
     } catch (error) {
-      console.warn(`AI Quiz generation failed for ${category}, falling back to dummy data`);
+      console.warn(`AI Quiz generation failed for ${category}, using generic fallback`);
       return this.getFallbackQuestions(category);
     }
   }
 
   private getFallbackQuestions(category: string): GeneratePracticeQuestionsOutput {
-    const key = category.toLowerCase();
-    return this.dummyData[key] || [
+    return [
       {
-        questionText: "Welcome to the practice session. Ready to begin?",
+        questionText: `Prepare for your ${category} concours. Ready to begin?`,
         options: { A: "Yes, let's go!", B: "I need a moment", C: "Maybe later", D: "Tell me more" },
         correctAnswer: "A"
       }
     ];
+  }
+
+  /**
+   * Returns metadata about available concours for a category
+   */
+  public getAvailableConcours(category: string) {
+    return this.localQuizzes[category.toLowerCase()] || [];
   }
 }
 
