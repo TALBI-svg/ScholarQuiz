@@ -13,7 +13,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 
 const categories = [
-  { id: "math", name: "Mathematics", count: "120+ Questions", color: "bg-blue-100" },
+  { id: "math", name: "MINISTERE DE LA JUSTICE Date : 07/01/2024 Dev", count: "120+ Questions", color: "bg-blue-100" },
   { id: "physics", name: "Physics", count: "85+ Questions", color: "bg-purple-100" },
   { id: "history", name: "History", count: "200+ Questions", color: "bg-orange-100" },
   { id: "biology", name: "Biology", count: "90+ Questions", color: "bg-green-100" },
@@ -88,7 +88,7 @@ export default function HomePage() {
               const img = PlaceHolderImages.find(p => p.id === category.id);
               return (
                 <Link key={category.id} href={`/quiz/${category.id}`}>
-                  <Card className="bg-card shadow-sm hover:shadow-lg transition-all border-none rounded-3xl overflow-hidden cursor-pointer group">
+                  <Card className="bg-card shadow-md hover:shadow-lg transition-all border-none rounded-3xl overflow-hidden cursor-pointer group">
                     <div className="relative h-32 md:h-40 w-full">
                       <Image 
                         src={img?.imageUrl || ""} 
@@ -100,7 +100,7 @@ export default function HomePage() {
                       <div className="absolute inset-0 bg-black/5" />
                     </div>
                     <CardContent className="p-4">
-                      <p className="font-bold text-base">{category.name}</p>
+                      <p className="font-bold text-sm md:text-base leading-tight min-h-[2.5rem] line-clamp-2">{category.name}</p>
                       <p className="text-xs text-muted-foreground mt-1">{category.count}</p>
                     </CardContent>
                   </Card>
@@ -109,7 +109,7 @@ export default function HomePage() {
             })}
           </div>
         ) : (
-          <div className="text-center py-12 bg-card rounded-3xl shadow-sm">
+          <div className="text-center py-12 bg-card rounded-3xl shadow-md">
             <Search className="h-12 w-12 text-muted-foreground mx-auto mb-4 opacity-20" />
             <p className="text-muted-foreground font-medium">No categories found matching "{searchQuery}"</p>
           </div>
