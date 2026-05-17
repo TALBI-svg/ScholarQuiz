@@ -1,16 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Search, Play, ChevronRight, BookOpen, Star } from "lucide-react";
+import { Search, Play, BookOpen, Star } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import Image from "next/image";
 import { BottomNav } from "@/components/layout/BottomNav";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { cn } from "@/lib/utils";
 
 const categories = [
   { id: "math", name: "MINISTERE DE LA JUSTICE Date : 07/01/2024 Dev", count: "120+ Questions", color: "bg-blue-100" },
@@ -21,11 +19,6 @@ const categories = [
   { id: "chemistry", name: "Chemistry", count: "110+ Questions", color: "bg-cyan-100" },
 ];
 
-const recentQuizzes = [
-  { id: "1", title: "General Mathematics", score: "85%", date: "2 days ago" },
-  { id: "2", title: "Modern History", score: "92%", date: "Yesterday" },
-];
-
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -34,7 +27,7 @@ export default function HomePage() {
   );
 
   return (
-    <div className="flex flex-col gap-8 p-6 pb-24 md:pb-8">
+    <div className="flex flex-col gap-8 p-6">
       {/* Header - Mobile Only */}
       <div className="flex items-center justify-between md:hidden">
         <div>

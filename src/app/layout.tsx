@@ -3,6 +3,7 @@ import './globals.css';
 import {Toaster} from "@/components/ui/toaster";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/layout/AppSidebar";
+import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: 'Preparer au Concours | Concours Prep',
@@ -25,8 +26,11 @@ export default function RootLayout({
         <SidebarProvider defaultOpen={true}>
           <div className="flex min-h-screen w-full">
             <AppSidebar />
-            <main className="flex-1 w-full max-w-5xl mx-auto min-h-screen bg-background relative md:px-8">
-              {children}
+            <main className="flex-1 w-full max-w-5xl mx-auto min-h-screen bg-background relative md:px-8 flex flex-col">
+              <div className="flex-1">
+                {children}
+              </div>
+              <Footer />
             </main>
           </div>
         </SidebarProvider>

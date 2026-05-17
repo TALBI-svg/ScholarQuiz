@@ -1,8 +1,6 @@
-
 import { Settings, Award, Clock, BookOpen, Star, ChevronRight } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { BottomNav } from "@/components/layout/BottomNav";
 import { cn } from "@/lib/utils";
 
@@ -21,7 +19,7 @@ const favoriteSubjects = [
 
 export default function ProfilePage() {
   return (
-    <div className="flex flex-col gap-8 p-6 pb-24 md:pb-8">
+    <div className="flex flex-col gap-8 p-6">
       {/* Header */}
       <div className="flex items-center justify-between">
         <h1 className="text-2xl md:text-3xl font-bold font-headline">My Profile</h1>
