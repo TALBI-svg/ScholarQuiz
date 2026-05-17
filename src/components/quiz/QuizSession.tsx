@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -28,7 +27,6 @@ export function QuizSession({ category }: QuizSessionProps) {
   const [quizComplete, setQuizComplete] = useState(false);
   const [timeLeft, setTimeLeft] = useState(0);
 
-  // Subscribe to the TimerService (Observer Pattern)
   useEffect(() => {
     const unsubscribe = timerService.subscribe((seconds) => {
       setTimeLeft(seconds);
@@ -46,7 +44,6 @@ export function QuizSession({ category }: QuizSessionProps) {
       const data = await questionService.getQuestions(category);
       setQuestions(data);
       
-      // Configure timer based on number of questions (e.g., 2 minutes per question)
       timerService.configure(data.length * 120);
       timerService.start();
       
@@ -62,7 +59,6 @@ export function QuizSession({ category }: QuizSessionProps) {
   const handleNext = () => {
     if (!selectedOption) return;
 
-    // Track score on transition
     if (selectedOption === questions[currentStep].correctAnswer) {
       setScore((prev) => prev + 1);
     }
@@ -83,7 +79,8 @@ export function QuizSession({ category }: QuizSessionProps) {
   };
 
   const getCategoryTitle = (id: string) => {
-    if (id === 'math') return "Ministère de la Justice";
+    if (id === 'dev') return "Ministère de la Justice (Dev)";
+    if (id === 'math') return "Mathématiques";
     return id.charAt(0).toUpperCase() + id.slice(1);
   };
 

@@ -1,4 +1,3 @@
-
 import { generatePracticeQuestions, type GeneratePracticeQuestionsOutput } from "@/ai/flows/generate-practice-questions";
 
 // Import pre-defined quiz data
@@ -13,7 +12,8 @@ class QuestionService {
   
   // Registry of available local concours files
   private localQuizzes: Record<string, any[]> = {
-    math: [justiceQuiz],
+    dev: [justiceQuiz],
+    math: [],
     physics: [],
     history: [],
     biology: [],
@@ -42,7 +42,6 @@ class QuestionService {
     const localConcours = this.localQuizzes[categoryLower];
     if (localConcours && localConcours.length > 0) {
       // Return the latest concours by date (sorted in JSON folder)
-      // For now, return the first one as an example
       return localConcours[0].questions;
     }
 

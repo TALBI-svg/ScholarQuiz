@@ -1,10 +1,16 @@
 {
   "placeholderImages": [
     {
-      "id": "math",
+      "id": "dev",
       "description": "Ministère de la Justice Icon",
       "imageUrl": "https://picsum.photos/seed/justice/400/400",
       "imageHint": "law justice"
+    },
+    {
+      "id": "math",
+      "description": "Mathematics category icon",
+      "imageUrl": "https://picsum.photos/seed/math/400/400",
+      "imageHint": "mathematics calculation"
     },
     {
       "id": "physics",

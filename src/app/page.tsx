@@ -11,7 +11,8 @@ import { BottomNav } from "@/components/layout/BottomNav";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const categories = [
-  { id: "math", name: "MINISTERE DE LA JUSTICE Date : 07/01/2024 Dev", count: "120+ Questions", color: "bg-blue-100" },
+  { id: "dev", name: "MINISTERE DE LA JUSTICE Date : 07/01/2024 Dev", count: "120+ Questions", color: "bg-blue-100" },
+  { id: "math", name: "Mathematics", count: "100+ Questions", color: "bg-indigo-100" },
   { id: "physics", name: "Physics", count: "85+ Questions", color: "bg-purple-100" },
   { id: "history", name: "History", count: "200+ Questions", color: "bg-orange-100" },
   { id: "biology", name: "Biology", count: "90+ Questions", color: "bg-green-100" },
@@ -23,7 +24,8 @@ export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredCategories = categories.filter((category) =>
-    category.name.toLowerCase().includes(searchQuery.toLowerCase())
+    category.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    category.id.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -45,7 +47,7 @@ export default function HomePage() {
           <div className="relative z-10 flex flex-col gap-4 max-w-full md:max-w-[60%]">
             <h2 className="text-2xl md:text-3xl font-bold text-primary">Ready to practice for your next concours?</h2>
             <p className="text-muted-foreground text-sm md:text-base">Jump into a quick AI-powered quiz session tailored to your current level and targets.</p>
-            <Link href="/quiz/math">
+            <Link href="/quiz/dev">
               <Button variant="default" size="lg" className="mt-2 w-fit rounded-full gap-2 font-semibold px-8 shadow-sm">
                 <Play className="h-5 w-5 fill-current" /> Start Practice
               </Button>
@@ -78,7 +80,7 @@ export default function HomePage() {
         {filteredCategories.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {filteredCategories.map((category) => {
-              const img = PlaceHolderImages.find(p => p.id === category.id);
+              const img = PlaceHolderImages.find(p => p.id === category.id) || PlaceHolderImages.find(p => p.id === 'dev');
               return (
                 <Link key={category.id} href={`/quiz/${category.id}`}>
                   <Card className="bg-card shadow-sm hover:shadow-md transition-all border border-border/50 rounded-3xl overflow-hidden cursor-pointer group">
@@ -92,7 +94,7 @@ export default function HomePage() {
                       />
                     </div>
                     <CardContent className="p-3">
-                      <p className="font-bold text-[10px] md:text-xs leading-tight min-h-[2.5rem]">{category.name}</p>
+                      <p className="font-bold text-[10px] md:text-xs leading-tight min-h-[3rem] line-clamp-3">{category.name}</p>
                       <p className="text-[10px] text-muted-foreground mt-1">{category.count}</p>
                     </CardContent>
                   </Card>
