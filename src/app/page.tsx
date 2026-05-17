@@ -100,8 +100,8 @@ export default function HomePage() {
                       <div className="absolute inset-0 bg-black/5" />
                     </div>
                     <CardContent className="p-4">
-                      <p className="font-bold text-sm md:text-base leading-tight min-h-[2.5rem] line-clamp-2">{category.name}</p>
-                      <p className="text-xs text-muted-foreground mt-1">{category.count}</p>
+                      <p className="font-bold text-[11px] md:text-xs leading-tight min-h-[3rem] line-clamp-none">{category.name}</p>
+                      <p className="text-[10px] md:text-xs text-muted-foreground mt-1">{category.count}</p>
                     </CardContent>
                   </Card>
                 </Link>
