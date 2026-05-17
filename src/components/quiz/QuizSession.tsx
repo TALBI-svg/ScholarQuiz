@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -60,8 +59,8 @@ export function QuizSession({ category }: QuizSessionProps) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4 p-6 text-center">
         <Loader2 className="h-12 w-12 text-primary animate-spin" />
-        <h2 className="text-2xl font-bold">Generating your personalized quiz...</h2>
-        <p className="text-muted-foreground text-lg">Our AI is hand-picking fresh questions for your success in the concours.</p>
+        <h2 className="text-2xl font-bold">Generating your personalized concours practice...</h2>
+        <p className="text-muted-foreground text-lg">Preparing high-quality questions for your success.</p>
       </div>
     );
   }
@@ -78,7 +77,7 @@ export function QuizSession({ category }: QuizSessionProps) {
           <div className="inline-flex items-center justify-center h-28 w-28 rounded-full bg-primary/10 mb-6">
             <TrophyIcon className="h-14 w-14 text-primary" />
           </div>
-          <h2 className="text-4xl font-bold mb-4">Quiz Complete!</h2>
+          <h2 className="text-4xl font-bold mb-4">Practice Complete!</h2>
           <p className="text-muted-foreground text-lg">{message}</p>
         </div>
 
@@ -156,51 +155,29 @@ export function QuizSession({ category }: QuizSessionProps) {
           <RadioGroup 
             value={selectedOption || ""} 
             onValueChange={handleOptionSelect}
-            className="grid gap-4"
+            className="grid gap-6 mt-4"
             disabled={isAnswered}
           >
             {Object.entries(currentQuestion.options).map(([key, text]) => {
               const isSelected = selectedOption === key;
-              
-              let stateClasses = "bg-card border-border hover:border-primary/50 hover:bg-accent/5 shadow-sm";
-              if (isSelected) {
-                stateClasses = "bg-primary/5 border-primary ring-2 ring-primary/20";
-              } else if (isAnswered) {
-                stateClasses = "bg-card border-border opacity-50";
-              }
 
               return (
-                <div key={key} className="relative">
+                <div key={key} className="flex items-center space-x-4 group">
                   <RadioGroupItem 
                     value={key} 
                     id={`option-${key}`} 
-                    className="sr-only" 
+                    className="h-6 w-6 border-2 border-muted-foreground/30 text-primary focus:ring-primary"
                   />
                   <Label
                     htmlFor={`option-${key}`}
                     className={cn(
-                      "flex items-center justify-between p-5 md:p-6 rounded-3xl border-2 transition-all cursor-pointer group w-full",
-                      stateClasses,
-                      !isAnswered && "hover:shadow-md active:scale-[0.99]"
+                      "text-lg md:text-xl font-medium cursor-pointer flex-1 py-1 transition-colors",
+                      isSelected ? "text-primary font-bold" : "text-foreground",
+                      isAnswered && !isSelected && "opacity-60"
                     )}
                   >
-                    <div className="flex items-center gap-5">
-                      <span className={cn(
-                        "flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-xl font-bold text-lg transition-colors",
-                        isSelected ? "bg-primary text-primary-foreground" : 
-                        "bg-secondary group-hover:bg-primary/20 text-primary"
-                      )}>
-                        {key}
-                      </span>
-                      <span className="font-semibold text-base md:text-lg">{text}</span>
-                    </div>
-                    
-                    <div className={cn(
-                      "h-6 w-6 rounded-full border-2 flex items-center justify-center transition-colors",
-                      isSelected ? "border-primary" : "border-muted-foreground/30"
-                    )}>
-                      {isSelected && <div className="h-3 w-3 rounded-full bg-primary" />}
-                    </div>
+                    <span className="mr-2 font-bold opacity-40 group-hover:opacity-100 transition-opacity">{key}.</span>
+                    {text}
                   </Label>
                 </div>
               );
@@ -216,7 +193,7 @@ export function QuizSession({ category }: QuizSessionProps) {
           size="lg"
           className="w-full h-16 rounded-3xl text-xl font-bold gap-3 shadow-xl transition-all hover:scale-[1.02] active:scale-[0.98]"
         >
-          {currentStep === questions.length - 1 ? "Complete Quiz" : "Continue"}
+          {currentStep === questions.length - 1 ? "Complete Practice" : "Continue"}
           <ArrowRight className="h-6 w-6" />
         </Button>
       </div>
