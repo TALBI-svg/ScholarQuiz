@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -6,101 +7,14 @@ import { CheckCircle2, XCircle, ArrowRight, Home, RefreshCw, Loader2, Clock } fr
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent } from "@/components/ui/card";
-import { generatePracticeQuestions, type GeneratePracticeQuestionsOutput } from "@/ai/flows/generate-practice-questions";
+import { type GeneratePracticeQuestionsOutput } from "@/ai/flows/generate-practice-questions";
+import { questionService } from "@/lib/question-service";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 interface QuizSessionProps {
   category: string;
 }
-
-const DUMMY_QUESTIONS: Record<string, GeneratePracticeQuestionsOutput> = {
-  math: [
-    {
-      questionText: "What is the square root of 144?",
-      options: { A: "10", B: "12", C: "14", D: "16" },
-      correctAnswer: "B"
-    },
-    {
-      questionText: "Solve for x: 3x - 7 = 14",
-      options: { A: "5", B: "6", C: "7", D: "8" },
-      correctAnswer: "C"
-    },
-    {
-      questionText: "What is the area of a circle with radius 5? (Approximate π as 3.14)",
-      options: { A: "31.4", B: "78.5", C: "15.7", D: "100" },
-      correctAnswer: "B"
-    },
-    {
-      questionText: "What is 15% of 200?",
-      options: { A: "20", B: "25", C: "30", D: "35" },
-      correctAnswer: "C"
-    },
-    {
-      questionText: "If a triangle has angles of 90° and 45°, what is the third angle?",
-      options: { A: "45°", B: "90°", C: "60°", D: "30°" },
-      correctAnswer: "A"
-    }
-  ],
-  physics: [
-    {
-      questionText: "What is the unit of force in the International System of Units (SI)?",
-      options: { A: "Watt", B: "Joule", C: "Newton", D: "Pascal" },
-      correctAnswer: "C"
-    },
-    {
-      questionText: "What is the speed of light in a vacuum?",
-      options: { A: "300,000 km/s", B: "150,000 km/s", C: "1,000,000 km/s", D: "500,000 km/s" },
-      correctAnswer: "A"
-    }
-  ],
-  history: [
-    {
-      questionText: "In which year did World War II end?",
-      options: { A: "1943", B: "1944", C: "1945", D: "1946" },
-      correctAnswer: "C"
-    },
-    {
-      questionText: "Who was the first President of the United States?",
-      options: { A: "Thomas Jefferson", B: "Abraham Lincoln", C: "George Washington", D: "John Adams" },
-      correctAnswer: "C"
-    }
-  ],
-  biology: [
-    {
-      questionText: "Which organ is responsible for pumping blood throughout the body?",
-      options: { A: "Lungs", B: "Brain", C: "Heart", D: "Liver" },
-      correctAnswer: "C"
-    },
-    {
-      questionText: "What is the powerhouse of the cell?",
-      options: { A: "Nucleus", B: "Mitochondria", C: "Ribosome", D: "Cytoplasm" },
-      correctAnswer: "B"
-    }
-  ],
-  literature: [
-    {
-      questionText: "Who wrote the play 'Romeo and Juliet'?",
-      options: { A: "Charles Dickens", B: "William Shakespeare", C: "Mark Twain", D: "Jane Austen" },
-      correctAnswer: "B"
-    }
-  ],
-  chemistry: [
-    {
-      questionText: "What is the chemical symbol for water?",
-      options: { A: "CO2", B: "O2", C: "H2O", D: "NaCl" },
-      correctAnswer: "C"
-    }
-  ]
-};
-
-const DEFAULT_QUESTIONS: GeneratePracticeQuestionsOutput = [
-  {
-    questionText: "Welcome to the practice session. Ready to begin?",
-    options: { A: "Yes, let's go!", B: "I need a moment", C: "Maybe later", D: "Tell me more" },
-    correctAnswer: "A"
-  }
-];
 
 export function QuizSession({ category }: QuizSessionProps) {
   const [questions, setQuestions] = useState<GeneratePracticeQuestionsOutput>([]);
@@ -113,25 +27,10 @@ export function QuizSession({ category }: QuizSessionProps) {
 
   useEffect(() => {
     async function loadQuiz() {
-      try {
-        const data = await generatePracticeQuestions({
-          concoursCategory: category,
-          difficultyLevel: "Medium",
-          numberOfQuestions: 5,
-        });
-        if (data && data.length > 0) {
-          setQuestions(data);
-        } else {
-          throw new Error("No data returned from AI");
-        }
-      } catch (error) {
-        console.log("AI Quiz generation failed, falling back to dummy data", error);
-        // Fallback to dummy data based on category
-        const fallback = DUMMY_QUESTIONS[category.toLowerCase()] || DEFAULT_QUESTIONS;
-        setQuestions(fallback);
-      } finally {
-        setLoading(false);
-      }
+      setLoading(true);
+      const data = await questionService.getQuestions(category);
+      setQuestions(data);
+      setLoading(false);
     }
     loadQuiz();
   }, [category]);
