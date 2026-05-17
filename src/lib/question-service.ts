@@ -1,4 +1,3 @@
-
 import { generatePracticeQuestions, type GeneratePracticeQuestionsOutput } from "@/ai/flows/generate-practice-questions";
 
 // Import pre-defined quiz data from the correct 'dev' category
@@ -14,7 +13,6 @@ class QuestionService {
   // Registry of available local concours files
   private localQuizzes: Record<string, any[]> = {
     dev: [justiceQuiz],
-    math: [],
     physics: [],
     history: [],
     biology: [],

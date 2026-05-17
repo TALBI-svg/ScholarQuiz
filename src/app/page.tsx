@@ -12,7 +12,6 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const categories = [
   { id: "dev", name: "MINISTERE DE LA JUSTICE Date : 07/01/2024 Dev", count: "120+ Questions", color: "bg-blue-100" },
-  { id: "math", name: "Mathematics", count: "100+ Questions", color: "bg-indigo-100" },
   { id: "physics", name: "Physics", count: "85+ Questions", color: "bg-purple-100" },
   { id: "history", name: "History", count: "200+ Questions", color: "bg-orange-100" },
   { id: "biology", name: "Biology", count: "90+ Questions", color: "bg-green-100" },

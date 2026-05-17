@@ -7,12 +7,6 @@
       "imageHint": "law justice"
     },
     {
-      "id": "math",
-      "description": "Mathematics category icon",
-      "imageUrl": "https://picsum.photos/seed/math/400/400",
-      "imageHint": "mathematics calculation"
-    },
-    {
       "id": "physics",
       "description": "Physics category icon",
       "imageUrl": "https://picsum.photos/seed/physics/400/400",
