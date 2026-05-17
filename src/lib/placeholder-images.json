@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "math",
+      "description": "Mathematics category icon",
+      "imageUrl": "https://picsum.photos/seed/math/400/400",
+      "imageHint": "mathematics calculation"
+    },
+    {
+      "id": "physics",
+      "description": "Physics category icon",
+      "imageUrl": "https://picsum.photos/seed/physics/400/400",
+      "imageHint": "physics science"
+    },
+    {
+      "id": "history",
+      "description": "History category icon",
+      "imageUrl": "https://picsum.photos/seed/history/400/400",
+      "imageHint": "history history"
+    },
+    {
+      "id": "biology",
+      "description": "Biology category icon",
+      "imageUrl": "https://picsum.photos/seed/biology/400/400",
+      "imageHint": "biology nature"
+    },
+    {
+      "id": "literature",
+      "description": "Literature category icon",
+      "imageUrl": "https://picsum.photos/seed/literature/400/400",
+      "imageHint": "literature books"
+    },
+    {
+      "id": "chemistry",
+      "description": "Chemistry category icon",
+      "imageUrl": "https://picsum.photos/seed/chemistry/400/400",
+      "imageHint": "chemistry lab"
+    }
+  ]
 }
