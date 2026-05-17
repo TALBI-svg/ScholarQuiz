@@ -3,7 +3,7 @@ import { generatePracticeQuestions, type GeneratePracticeQuestionsOutput } from 
 
 /**
  * Singleton QuestionService to manage and provide questions for the app.
- * This can be extended to support different question formats or sources.
+ * Acts as a central factory for quiz data across all categories.
  */
 class QuestionService {
   private static instance: QuestionService;
@@ -11,29 +11,29 @@ class QuestionService {
   private dummyData: Record<string, GeneratePracticeQuestionsOutput> = {
     math: [
       {
-        questionText: "What is the square root of 144?",
-        options: { A: "10", B: "12", C: "14", D: "16" },
+        questionText: "Quelle est la juridiction compétente pour le contentieux administratif en premier ressort ?",
+        options: { A: "Le Tribunal de Grande Instance", B: "Le Tribunal Administratif", C: "La Cour d'Appel", D: "Le Conseil d'État" },
         correctAnswer: "B"
       },
       {
-        questionText: "Solve for x: 3x - 7 = 14",
-        options: { A: "5", B: "6", C: "7", D: "8" },
-        correctAnswer: "C"
-      },
-      {
-        questionText: "What is the area of a circle with radius 5? (Approximate π as 3.14)",
-        options: { A: "31.4", B: "78.5", C: "15.7", D: "100" },
-        correctAnswer: "B"
-      },
-      {
-        questionText: "What is 15% of 200?",
-        options: { A: "20", B: "25", C: "30", D: "35" },
-        correctAnswer: "C"
-      },
-      {
-        questionText: "If a triangle has angles of 90° and 45°, what is the third angle?",
-        options: { A: "45°", B: "90°", C: "60°", D: "30°" },
+        questionText: "Qui est le chef du parquet dans un tribunal de grande instance ?",
+        options: { A: "Le Procureur de la République", B: "Le Juge d'Instruction", C: "Le Président du Tribunal", D: "L'Huissier" },
         correctAnswer: "A"
+      },
+      {
+        questionText: "Quel est l'âge minimum pour être juré d'assises ?",
+        options: { A: "18 ans", B: "21 ans", C: "23 ans", D: "25 ans" },
+        correctAnswer: "C"
+      },
+      {
+        questionText: "Sous quelle autorité sont placés les magistrats du parquet ?",
+        options: { A: "Le Conseil Supérieur de la Magistrature", B: "Le Garde des Sceaux", C: "Le Premier Ministre", D: "Le Président de la République" },
+        correctAnswer: "B"
+      },
+      {
+        questionText: "Quelle est la peine maximale pour un crime ?",
+        options: { A: "20 ans", B: "30 ans", C: "Réclusion criminelle à perpétuité", D: "10 ans" },
+        correctAnswer: "C"
       }
     ],
     physics: [
@@ -59,32 +59,6 @@ class QuestionService {
         options: { A: "Thomas Jefferson", B: "Abraham Lincoln", C: "George Washington", D: "John Adams" },
         correctAnswer: "C"
       }
-    ],
-    biology: [
-      {
-        questionText: "Which organ is responsible for pumping blood throughout the body?",
-        options: { A: "Lungs", B: "Brain", C: "Heart", D: "Liver" },
-        correctAnswer: "C"
-      },
-      {
-        questionText: "What is the powerhouse of the cell?",
-        options: { A: "Nucleus", B: "Mitochondria", C: "Ribosome", D: "Cytoplasm" },
-        correctAnswer: "B"
-      }
-    ],
-    literature: [
-      {
-        questionText: "Who wrote the play 'Romeo and Juliet'?",
-        options: { A: "Charles Dickens", B: "William Shakespeare", C: "Mark Twain", D: "Jane Austen" },
-        correctAnswer: "B"
-      }
-    ],
-    chemistry: [
-      {
-        questionText: "What is the chemical symbol for water?",
-        options: { A: "CO2", B: "O2", C: "H2O", D: "NaCl" },
-        correctAnswer: "C"
-      }
     ]
   };
 
@@ -99,7 +73,7 @@ class QuestionService {
 
   /**
    * Fetches questions for a specific category.
-   * Tries AI first, falls back to pre-defined data.
+   * Uses AI generation if possible, otherwise falls back to static dummy data.
    */
   public async getQuestions(category: string, count: number = 5): Promise<GeneratePracticeQuestionsOutput> {
     try {
@@ -119,9 +93,6 @@ class QuestionService {
     }
   }
 
-  /**
-   * Provides fallback questions for a category.
-   */
   private getFallbackQuestions(category: string): GeneratePracticeQuestionsOutput {
     const key = category.toLowerCase();
     return this.dummyData[key] || [

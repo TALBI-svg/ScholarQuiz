@@ -1,8 +1,9 @@
+
 /**
- * @fileOverview TimerService implementing the Observer Pattern.
+ * TimerService implementing the Observer Pattern.
  * 
- * This service acts as a 'Subject' that notifies subscribers of time changes.
- * It allows the quiz timer to be configurable and decoupled from the UI.
+ * This service acts as a 'Subject' that notifies subscribers (Observers) of time changes.
+ * It allows the quiz timer to be configurable and decoupled from any specific UI component.
  */
 
 type TimerListener = (seconds: number) => void;
@@ -28,7 +29,7 @@ class TimerService {
    */
   public subscribe(listener: TimerListener): () => void {
     this.listeners.add(listener);
-    // Initial notification
+    // Notify the new subscriber immediately with the current state
     listener(this.remainingSeconds);
     return () => this.unsubscribe(listener);
   }
@@ -66,9 +67,6 @@ class TimerService {
     }, 1000);
   }
 
-  /**
-   * Stop/Pause the countdown.
-   */
   public stop(): void {
     if (this.intervalId) {
       clearInterval(this.intervalId);
@@ -76,9 +74,6 @@ class TimerService {
     }
   }
 
-  /**
-   * Reset the timer state.
-   */
   public reset(): void {
     this.stop();
     this.remainingSeconds = 0;

@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -31,16 +32,13 @@ export function QuizSession({ category }: QuizSessionProps) {
   useEffect(() => {
     const unsubscribe = timerService.subscribe((seconds) => {
       setTimeLeft(seconds);
-      if (seconds === 0 && !loading && !quizComplete && questions.length > 0) {
-        // Handle timeout if needed
-      }
     });
 
     return () => {
       unsubscribe();
       timerService.stop();
     };
-  }, [loading, quizComplete, questions.length]);
+  }, []);
 
   useEffect(() => {
     async function loadQuiz() {
@@ -48,9 +46,8 @@ export function QuizSession({ category }: QuizSessionProps) {
       const data = await questionService.getQuestions(category);
       setQuestions(data);
       
-      // Configure and start the timer once questions are loaded
-      // Here we configure it to 10 minutes (600 seconds) as an example
-      timerService.configure(600);
+      // Configure timer based on number of questions (e.g., 2 minutes per question)
+      timerService.configure(data.length * 120);
       timerService.start();
       
       setLoading(false);
@@ -65,6 +62,7 @@ export function QuizSession({ category }: QuizSessionProps) {
   const handleNext = () => {
     if (!selectedOption) return;
 
+    // Track score on transition
     if (selectedOption === questions[currentStep].correctAnswer) {
       setScore((prev) => prev + 1);
     }
@@ -101,49 +99,42 @@ export function QuizSession({ category }: QuizSessionProps) {
 
   if (quizComplete) {
     const percentage = Math.round((score / questions.length) * 100);
-    let message = "Keep studying! You can do better.";
-    if (percentage >= 80) message = "Amazing work! You're ready for the concours!";
-    else if (percentage >= 50) message = "Good progress! Keep practicing.";
-
     return (
-      <div className="flex flex-col gap-8 p-6 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-500 py-12">
+      <div className="flex flex-col gap-8 p-6 max-w-2xl mx-auto py-12 animate-in fade-in slide-in-from-bottom-4">
         <div className="text-center">
-          <div className="inline-flex items-center justify-center h-28 w-28 rounded-full bg-primary/10 mb-6">
-            <TrophyIcon className="h-14 w-14 text-primary" />
+          <div className="inline-flex items-center justify-center h-24 w-24 rounded-full bg-primary/10 mb-6">
+            <TrophyIcon className="h-12 w-12 text-primary" />
           </div>
-          <h2 className="text-4xl font-bold mb-4">Practice Complete!</h2>
-          <p className="text-muted-foreground text-lg">{message}</p>
+          <h2 className="text-3xl font-bold mb-2">Practice Complete!</h2>
+          <p className="text-muted-foreground">Review your performance below.</p>
         </div>
 
-        <Card className="border-none shadow-xl overflow-hidden rounded-[2.5rem] bg-card">
+        <Card className="border-none shadow-lg overflow-hidden rounded-[2rem] bg-card">
           <CardContent className="p-0">
-            <div className="bg-primary p-10 text-primary-foreground text-center">
-              <span className="text-6xl md:text-7xl font-bold">{percentage}%</span>
-              <p className="text-primary-foreground/80 mt-2 text-lg font-medium">Your Accuracy</p>
+            <div className="bg-primary p-8 text-primary-foreground text-center">
+              <span className="text-6xl font-bold">{percentage}%</span>
+              <p className="text-primary-foreground/80 mt-1 font-medium">Your Score</p>
             </div>
-            <div className="p-8 grid grid-cols-2 gap-8 divide-x divide-border bg-card">
+            <div className="p-6 grid grid-cols-2 gap-4 divide-x bg-card">
               <div className="text-center">
-                <p className="text-4xl font-bold text-green-600">{score}</p>
-                <p className="text-sm text-muted-foreground uppercase tracking-widest mt-1 font-bold">Correct</p>
+                <p className="text-3xl font-bold text-green-600">{score}</p>
+                <p className="text-xs text-muted-foreground uppercase font-bold">Correct</p>
               </div>
               <div className="text-center">
-                <p className="text-4xl font-bold text-red-500">{questions.length - score}</p>
-                <p className="text-sm text-muted-foreground uppercase tracking-widest mt-1 font-bold">Incorrect</p>
+                <p className="text-3xl font-bold text-red-500">{questions.length - score}</p>
+                <p className="text-xs text-muted-foreground uppercase font-bold">Incorrect</p>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <div className="flex flex-col sm:flex-row gap-4 mt-4">
-          <Button 
-            className="flex-1 h-16 rounded-3xl text-xl font-bold gap-3 shadow-lg"
-            onClick={() => window.location.reload()}
-          >
-            <RefreshCw className="h-6 w-6" /> Try Again
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Button className="flex-1 h-14 rounded-2xl font-bold gap-2" onClick={() => window.location.reload()}>
+            <RefreshCw className="h-5 w-5" /> Try Again
           </Button>
           <Link href="/" className="flex-1">
-            <Button variant="outline" className="w-full h-16 rounded-3xl text-xl font-bold gap-3">
-              <Home className="h-6 w-6" /> Back to Dashboard
+            <Button variant="outline" className="w-full h-14 rounded-2xl font-bold gap-2">
+              <Home className="h-5 w-5" /> Dashboard
             </Button>
           </Link>
         </div>
@@ -153,73 +144,73 @@ export function QuizSession({ category }: QuizSessionProps) {
 
   const currentQuestion = questions[currentStep];
   const progress = ((currentStep + 1) / questions.length) * 100;
-  const isAnswered = selectedOption !== null;
 
   return (
     <div className="flex flex-col gap-8 p-6 min-h-screen max-w-3xl mx-auto">
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground overflow-hidden whitespace-nowrap">
-            <Link href="/" className="hover:text-primary transition-colors shrink-0 flex items-center gap-1">
-              <Home className="h-4 w-4" />
-              <span>Home</span>
+          <div className="flex items-center gap-2 text-xs text-muted-foreground">
+            <Link href="/" className="hover:text-primary transition-colors flex items-center gap-1">
+              <Home className="h-3 w-3" />
+              <span>Dashboard</span>
             </Link>
-            <ChevronRight className="h-3 w-3 shrink-0" />
-            <span className="font-bold text-foreground truncate">
+            <ChevronRight className="h-2 w-2" />
+            <span className="font-bold text-foreground">
               {getCategoryTitle(category)}
             </span>
           </div>
-          <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full border border-primary/20 shrink-0 ml-2">
-            <Clock className="h-4 w-4 text-primary" />
+          <div className="flex items-center gap-2 bg-primary/10 px-3 py-1.5 rounded-full">
+            <Clock className="h-3.5 w-3.5 text-primary" />
             <span className={cn(
-              "text-xs font-bold tabular-nums",
-              timeLeft < 60 ? "text-destructive animate-pulse" : "text-primary"
+              "text-xs font-bold tabular-nums text-primary",
+              timeLeft < 60 && "text-destructive"
             )}>
               {formatTime(timeLeft)}
             </span>
           </div>
-          <span className="text-sm font-bold text-primary shrink-0 ml-2">
-            {currentStep + 1} / {questions.length}
-          </span>
         </div>
-        <Progress value={progress} className="h-2 rounded-full" />
+        <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+          <span>Progress</span>
+          <span>{currentStep + 1} / {questions.length}</span>
+        </div>
+        <Progress value={progress} className="h-1.5 rounded-full" />
       </div>
 
       <AnimatePresence mode="wait">
         <motion.div
           key={currentStep}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="flex flex-col gap-8"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -20 }}
+          className="flex flex-col gap-6"
         >
-          <h2 className="text-2xl md:text-3xl font-bold font-headline leading-tight mt-4">
+          <h2 className="text-xl md:text-2xl font-bold leading-tight">
             {currentQuestion.questionText}
           </h2>
 
           <RadioGroup 
             value={selectedOption || ""} 
             onValueChange={handleOptionSelect}
-            className="grid gap-6 mt-4"
+            className="grid gap-4 mt-2"
           >
             {Object.entries(currentQuestion.options).map(([key, text]) => {
               const isSelected = selectedOption === key;
 
               return (
-                <div key={key} className="flex items-center space-x-4 group">
+                <div key={key} className="flex items-center space-x-3 group">
                   <RadioGroupItem 
                     value={key} 
                     id={`option-${key}`} 
-                    className="h-6 w-6 border-2 border-muted-foreground/30 text-primary focus:ring-primary"
+                    className="h-5 w-5 border-2 border-primary/30 text-primary"
                   />
                   <Label
                     htmlFor={`option-${key}`}
                     className={cn(
-                      "text-lg md:text-xl font-medium cursor-pointer flex-1 py-1 transition-colors",
+                      "text-base md:text-lg font-medium cursor-pointer flex-1 py-1 transition-colors",
                       isSelected ? "text-primary font-bold" : "text-foreground"
                     )}
                   >
-                    <span className="mr-2 font-bold opacity-40 group-hover:opacity-100 transition-opacity">{key}.</span>
+                    <span className="mr-2 opacity-50">{key}.</span>
                     {text}
                   </Label>
                 </div>
@@ -229,15 +220,15 @@ export function QuizSession({ category }: QuizSessionProps) {
         </motion.div>
       </AnimatePresence>
 
-      <div className="mt-auto pt-10 pb-12">
+      <div className="mt-auto pt-10 pb-8">
         <Button
           onClick={handleNext}
-          disabled={!isAnswered}
+          disabled={!selectedOption}
           size="lg"
-          className="w-full h-16 rounded-3xl text-xl font-bold gap-3 shadow-xl transition-all hover:scale-[1.02] active:scale-[0.98]"
+          className="w-full h-14 rounded-2xl text-lg font-bold gap-2 shadow-md"
         >
-          {currentStep === questions.length - 1 ? "Complete Practice" : "Continue"}
-          <ArrowRight className="h-6 w-6" />
+          {currentStep === questions.length - 1 ? "Finish" : "Continue"}
+          <ArrowRight className="h-5 w-5" />
         </Button>
       </div>
     </div>

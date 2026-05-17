@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "math",
-      "description": "Mathematics category icon",
-      "imageUrl": "https://picsum.photos/seed/math/400/400",
-      "imageHint": "mathematics calculation"
+      "description": "Ministère de la Justice Icon",
+      "imageUrl": "https://picsum.photos/seed/justice/400/400",
+      "imageHint": "law justice"
     },
     {
       "id": "physics",
@@ -16,19 +16,19 @@
       "id": "history",
       "description": "History category icon",
       "imageUrl": "https://picsum.photos/seed/history/400/400",
-      "imageHint": "history history"
+      "imageHint": "history architecture"
     },
     {
       "id": "biology",
       "description": "Biology category icon",
       "imageUrl": "https://picsum.photos/seed/biology/400/400",
-      "imageHint": "biology nature"
+      "imageHint": "nature biology"
     },
     {
       "id": "literature",
       "description": "Literature category icon",
       "imageUrl": "https://picsum.photos/seed/literature/400/400",
-      "imageHint": "literature books"
+      "imageHint": "books library"
     },
     {
       "id": "chemistry",
