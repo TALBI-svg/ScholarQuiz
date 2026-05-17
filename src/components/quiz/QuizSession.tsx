@@ -7,6 +7,8 @@ import { ArrowRight, Home, RefreshCw, Loader2, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent } from "@/components/ui/card";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 import { type GeneratePracticeQuestionsOutput } from "@/ai/flows/generate-practice-questions";
 import { questionService } from "@/lib/question-service";
 import Link from "next/link";
@@ -151,44 +153,59 @@ export function QuizSession({ category }: QuizSessionProps) {
             {currentQuestion.questionText}
           </h2>
 
-          <div className="grid gap-4">
+          <RadioGroup 
+            value={selectedOption || ""} 
+            onValueChange={handleOptionSelect}
+            className="grid gap-4"
+            disabled={isAnswered}
+          >
             {Object.entries(currentQuestion.options).map(([key, text]) => {
               const isSelected = selectedOption === key;
               
-              let stateClasses = "bg-card border-border hover:border-primary/50 hover:bg-accent/5";
-              if (isAnswered) {
-                if (isSelected) {
-                  stateClasses = "bg-primary/5 border-primary text-primary ring-2 ring-primary/20";
-                } else {
-                  stateClasses = "bg-card border-border opacity-50";
-                }
+              let stateClasses = "bg-card border-border hover:border-primary/50 hover:bg-accent/5 shadow-sm";
+              if (isSelected) {
+                stateClasses = "bg-primary/5 border-primary ring-2 ring-primary/20";
+              } else if (isAnswered) {
+                stateClasses = "bg-card border-border opacity-50";
               }
 
               return (
-                <button
-                  key={key}
-                  onClick={() => handleOptionSelect(key)}
-                  disabled={isAnswered}
-                  className={cn(
-                    "flex items-center justify-between p-5 md:p-6 rounded-3xl border-2 transition-all text-left group",
-                    stateClasses,
-                    !isAnswered && "hover:shadow-lg active:scale-[0.98]"
-                  )}
-                >
-                  <div className="flex items-center gap-5">
-                    <span className={cn(
-                      "flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-xl font-bold text-lg transition-colors",
-                      isAnswered && isSelected ? "bg-primary text-primary-foreground" : 
-                      "bg-secondary group-hover:bg-primary/20 text-primary"
+                <div key={key} className="relative">
+                  <RadioGroupItem 
+                    value={key} 
+                    id={`option-${key}`} 
+                    className="sr-only" 
+                  />
+                  <Label
+                    htmlFor={`option-${key}`}
+                    className={cn(
+                      "flex items-center justify-between p-5 md:p-6 rounded-3xl border-2 transition-all cursor-pointer group w-full",
+                      stateClasses,
+                      !isAnswered && "hover:shadow-md active:scale-[0.99]"
+                    )}
+                  >
+                    <div className="flex items-center gap-5">
+                      <span className={cn(
+                        "flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-xl font-bold text-lg transition-colors",
+                        isSelected ? "bg-primary text-primary-foreground" : 
+                        "bg-secondary group-hover:bg-primary/20 text-primary"
+                      )}>
+                        {key}
+                      </span>
+                      <span className="font-semibold text-base md:text-lg">{text}</span>
+                    </div>
+                    
+                    <div className={cn(
+                      "h-6 w-6 rounded-full border-2 flex items-center justify-center transition-colors",
+                      isSelected ? "border-primary" : "border-muted-foreground/30"
                     )}>
-                      {key}
-                    </span>
-                    <span className="font-semibold text-base md:text-lg">{text}</span>
-                  </div>
-                </button>
+                      {isSelected && <div className="h-3 w-3 rounded-full bg-primary" />}
+                    </div>
+                  </Label>
+                </div>
               );
             })}
-          </div>
+          </RadioGroup>
         </motion.div>
       </AnimatePresence>
 
