@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -28,7 +27,7 @@ export function QuizSession({ category }: QuizSessionProps) {
     async function loadQuiz() {
       try {
         const data = await generatePracticeQuestions({
-          examCategory: category,
+          concoursCategory: category,
           difficultyLevel: "Medium",
           numberOfQuestions: 5,
         });
@@ -66,7 +65,7 @@ export function QuizSession({ category }: QuizSessionProps) {
       <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4 p-6 text-center">
         <Loader2 className="h-12 w-12 text-primary animate-spin" />
         <h2 className="text-2xl font-bold">Generating your personalized quiz...</h2>
-        <p className="text-muted-foreground text-lg">Our AI is hand-picking fresh questions for your success.</p>
+        <p className="text-muted-foreground text-lg">Our AI is hand-picking fresh questions for your success in the concours.</p>
       </div>
     );
   }

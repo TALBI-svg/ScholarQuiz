@@ -41,7 +41,7 @@ export default function HomePage() {
       <Card className="bg-primary text-primary-foreground border-none overflow-hidden shadow-lg relative">
         <CardContent className="p-6 md:p-10">
           <div className="relative z-10 flex flex-col gap-4 max-w-full md:max-w-[60%]">
-            <h2 className="text-2xl md:text-3xl font-bold">Ready to practice for your next exam?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold">Ready to practice for your next concours?</h2>
             <p className="text-primary-foreground/80 text-sm md:text-base">Jump into a quick AI-powered quiz session tailored to your current level and targets.</p>
             <Link href="/quiz/math">
               <Button variant="secondary" size="lg" className="mt-2 w-fit rounded-full gap-2 font-semibold px-8">
@@ -59,7 +59,7 @@ export default function HomePage() {
       <div className="relative max-w-2xl mx-auto w-full">
         <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
         <Input 
-          placeholder="Search for subjects, topics, or previous exams..." 
+          placeholder="Search for subjects, topics, or previous concours..." 
           className="pl-12 h-14 rounded-2xl bg-card border-none shadow-sm text-base"
         />
       </div>
@@ -67,7 +67,7 @@ export default function HomePage() {
       {/* Categories */}
       <section id="categories">
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-bold font-headline">Exam Categories</h3>
+          <h3 className="text-xl font-bold font-headline">Concours Categories</h3>
           <Button variant="link" className="text-primary p-0">See all categories</Button>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">

@@ -5,8 +5,8 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/layout/AppSidebar";
 
 export const metadata: Metadata = {
-  title: 'Preparer au Concours | Exam Prep',
-  description: 'A modern mobile-first quiz app for students preparing for concours exams.',
+  title: 'Preparer au Concours | Concours Prep',
+  description: 'A modern mobile-first quiz app for students preparing for concours.',
 };
 
 export default function RootLayout({

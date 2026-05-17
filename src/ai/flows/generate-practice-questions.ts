@@ -1,6 +1,6 @@
 'use server';
 /**
- * @fileOverview A Genkit flow for generating practice questions for concours exams.
+ * @fileOverview A Genkit flow for generating practice questions for concours.
  *
  * - generatePracticeQuestions - A function that handles the practice question generation process.
  * - GeneratePracticeQuestionsInput - The input type for the generatePracticeQuestions function.
@@ -11,8 +11,8 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const GeneratePracticeQuestionsInputSchema = z.object({
-  examCategory:
-    z.string().describe('The category of the exam, e.g., "Mathematics", "Physics", "History".'),
+  concoursCategory:
+    z.string().describe('The category of the concours, e.g., "Mathematics", "Physics", "History".'),
   difficultyLevel:
     z.enum(['Easy', 'Medium', 'Hard']).describe('The difficulty level of the questions.'),
   numberOfQuestions:
@@ -53,7 +53,7 @@ const prompt = ai.definePrompt({
   name: 'generatePracticeQuestionsPrompt',
   input: {schema: GeneratePracticeQuestionsInputSchema},
   output: {schema: GeneratePracticeQuestionsOutputSchema},
-  prompt: `You are an expert quiz question generator for concours exams. Your task is to create multiple-choice questions.\n\nGenerate exactly {{{numberOfQuestions}}} practice questions for the "{{{examCategory}}}" category at a "{{{difficultyLevel}}}" difficulty level.\n\nEach question must have:\n- A 'questionText' field for the question itself.\n- An 'options' object with four fields (A, B, C, D) for the choices.\n- A 'correctAnswer' field indicating the correct option (A, B, C, or D).\n\nEnsure the questions are challenging and relevant to concours exams. Provide only the JSON output.`,
+  prompt: `You are an expert quiz question generator for concours. Your task is to create multiple-choice questions.\n\nGenerate exactly {{{numberOfQuestions}}} practice questions for the "{{{concoursCategory}}}" category at a "{{{difficultyLevel}}}" difficulty level.\n\nEach question must have:\n- A 'questionText' field for the question itself.\n- An 'options' object with four fields (A, B, C, D) for the choices.\n- A 'correctAnswer' field indicating the correct option (A, B, C, or D).\n\nEnsure the questions are challenging and relevant to concours. Provide only the JSON output.`,
 });
 
 const generatePracticeQuestionsFlow = ai.defineFlow(
