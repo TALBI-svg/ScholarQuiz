@@ -21,7 +21,6 @@ export function QuizSession({ category }: QuizSessionProps) {
   const [questions, setQuestions] = useState<GeneratePracticeQuestionsOutput>([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [isAnswered, setIsAnswered] = useState(false);
   const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(true);
   const [quizComplete, setQuizComplete] = useState(false);
@@ -37,19 +36,20 @@ export function QuizSession({ category }: QuizSessionProps) {
   }, [category]);
 
   const handleOptionSelect = (option: string) => {
-    if (isAnswered) return;
     setSelectedOption(option);
-    setIsAnswered(true);
-    if (option === questions[currentStep].correctAnswer) {
-      setScore((prev) => prev + 1);
-    }
   };
 
   const handleNext = () => {
+    if (!selectedOption) return;
+
+    // Calculate score for the current question before moving forward
+    if (selectedOption === questions[currentStep].correctAnswer) {
+      setScore((prev) => prev + 1);
+    }
+
     if (currentStep < questions.length - 1) {
       setCurrentStep((prev) => prev + 1);
       setSelectedOption(null);
-      setIsAnswered(false);
     } else {
       setQuizComplete(true);
     }
@@ -119,6 +119,7 @@ export function QuizSession({ category }: QuizSessionProps) {
 
   const currentQuestion = questions[currentStep];
   const progress = ((currentStep + 1) / questions.length) * 100;
+  const isAnswered = selectedOption !== null;
 
   return (
     <div className="flex flex-col gap-8 p-6 min-h-screen max-w-3xl mx-auto">
@@ -156,7 +157,6 @@ export function QuizSession({ category }: QuizSessionProps) {
             value={selectedOption || ""} 
             onValueChange={handleOptionSelect}
             className="grid gap-6 mt-4"
-            disabled={isAnswered}
           >
             {Object.entries(currentQuestion.options).map(([key, text]) => {
               const isSelected = selectedOption === key;
@@ -172,8 +172,7 @@ export function QuizSession({ category }: QuizSessionProps) {
                     htmlFor={`option-${key}`}
                     className={cn(
                       "text-lg md:text-xl font-medium cursor-pointer flex-1 py-1 transition-colors",
-                      isSelected ? "text-primary font-bold" : "text-foreground",
-                      isAnswered && !isSelected && "opacity-60"
+                      isSelected ? "text-primary font-bold" : "text-foreground"
                     )}
                   >
                     <span className="mr-2 font-bold opacity-40 group-hover:opacity-100 transition-opacity">{key}.</span>
