@@ -26,7 +26,7 @@ const recentQuizzes = [
 export default function HomePage() {
   return (
     <div className="flex flex-col gap-8 p-6 pb-24 md:pb-8">
-      {/* Header - Mobile Only (Hidden on Desktop because of Sidebar) */}
+      {/* Header - Mobile Only */}
       <div className="flex items-center justify-between md:hidden">
         <div>
           <h1 className="text-xl font-bold font-headline text-primary">Preparer au Concours</h1>
@@ -37,19 +37,19 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Hero Action */}
-      <Card className="bg-primary text-primary-foreground border-none overflow-hidden shadow-lg relative">
+      {/* Hero Action - Now White with Shadow */}
+      <Card className="bg-card text-card-foreground border-none overflow-hidden shadow-md relative">
         <CardContent className="p-6 md:p-10">
           <div className="relative z-10 flex flex-col gap-4 max-w-full md:max-w-[60%]">
-            <h2 className="text-2xl md:text-3xl font-bold">Ready to practice for your next concours?</h2>
-            <p className="text-primary-foreground/80 text-sm md:text-base">Jump into a quick AI-powered quiz session tailored to your current level and targets.</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary">Ready to practice for your next concours?</h2>
+            <p className="text-muted-foreground text-sm md:text-base">Jump into a quick AI-powered quiz session tailored to your current level and targets.</p>
             <Link href="/quiz/math">
-              <Button variant="secondary" size="lg" className="mt-2 w-fit rounded-full gap-2 font-semibold px-8">
+              <Button variant="default" size="lg" className="mt-2 w-fit rounded-full gap-2 font-semibold px-8 shadow-sm">
                 <Play className="h-5 w-5 fill-current" /> Start Practice
               </Button>
             </Link>
           </div>
-          <div className="absolute right-0 bottom-0 opacity-10 md:opacity-20 pointer-events-none hidden sm:block">
+          <div className="absolute right-0 bottom-0 opacity-5 md:opacity-10 pointer-events-none hidden sm:block">
             <BookOpen className="h-48 w-48 md:h-64 md:w-64 -rotate-12 translate-x-8 translate-y-8" />
           </div>
         </CardContent>
@@ -75,7 +75,7 @@ export default function HomePage() {
             const img = PlaceHolderImages.find(p => p.id === category.id);
             return (
               <Link key={category.id} href={`/quiz/${category.id}`}>
-                <Card className="hover:shadow-lg transition-all border-none rounded-3xl overflow-hidden cursor-pointer group">
+                <Card className="bg-card shadow-sm hover:shadow-lg transition-all border-none rounded-3xl overflow-hidden cursor-pointer group">
                   <div className="relative h-32 md:h-40 w-full">
                     <Image 
                       src={img?.imageUrl || ""} 
@@ -127,7 +127,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="bg-accent/5 rounded-3xl p-6 flex flex-col justify-center border border-accent/10">
+        <section className="bg-card rounded-3xl p-6 flex flex-col justify-center border border-border/30 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
             <TrophyIcon className="h-8 w-8 text-primary" />
             <h3 className="text-xl font-bold font-headline">Weekly Progress</h3>
