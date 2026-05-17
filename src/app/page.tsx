@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Search, Play, ChevronRight, BookOpen, Star } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -24,6 +27,12 @@ const recentQuizzes = [
 ];
 
 export default function HomePage() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredCategories = categories.filter((category) =>
+    category.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="flex flex-col gap-8 p-6 pb-24 md:pb-8">
       {/* Header - Mobile Only */}
@@ -55,10 +64,12 @@ export default function HomePage() {
         </CardContent>
       </Card>
 
-      {/* Search Bar - Now matching Card width */}
+      {/* Search Bar */}
       <div className="relative w-full">
         <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
         <Input 
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search for subjects, topics, or previous concours..." 
           className="pl-12 h-14 rounded-2xl bg-card border-none shadow-sm text-base w-full"
         />
@@ -70,31 +81,39 @@ export default function HomePage() {
           <h3 className="text-xl font-bold font-headline">Concours Categories</h3>
           <Button variant="link" className="text-primary p-0">See all categories</Button>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-          {categories.map((category) => {
-            const img = PlaceHolderImages.find(p => p.id === category.id);
-            return (
-              <Link key={category.id} href={`/quiz/${category.id}`}>
-                <Card className="bg-card shadow-sm hover:shadow-lg transition-all border-none rounded-3xl overflow-hidden cursor-pointer group">
-                  <div className="relative h-32 md:h-40 w-full">
-                    <Image 
-                      src={img?.imageUrl || ""} 
-                      alt={category.name} 
-                      fill 
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      data-ai-hint={img?.imageHint}
-                    />
-                    <div className="absolute inset-0 bg-black/5" />
-                  </div>
-                  <CardContent className="p-4">
-                    <p className="font-bold text-base">{category.name}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{category.count}</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            );
-          })}
-        </div>
+        
+        {filteredCategories.length > 0 ? (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            {filteredCategories.map((category) => {
+              const img = PlaceHolderImages.find(p => p.id === category.id);
+              return (
+                <Link key={category.id} href={`/quiz/${category.id}`}>
+                  <Card className="bg-card shadow-sm hover:shadow-lg transition-all border-none rounded-3xl overflow-hidden cursor-pointer group">
+                    <div className="relative h-32 md:h-40 w-full">
+                      <Image 
+                        src={img?.imageUrl || ""} 
+                        alt={category.name} 
+                        fill 
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-ai-hint={img?.imageHint}
+                      />
+                      <div className="absolute inset-0 bg-black/5" />
+                    </div>
+                    <CardContent className="p-4">
+                      <p className="font-bold text-base">{category.name}</p>
+                      <p className="text-xs text-muted-foreground mt-1">{category.count}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="text-center py-12 bg-card rounded-3xl shadow-sm">
+            <Search className="h-12 w-12 text-muted-foreground mx-auto mb-4 opacity-20" />
+            <p className="text-muted-foreground font-medium">No categories found matching "{searchQuery}"</p>
+          </div>
+        )}
       </section>
 
       {/* Recent Quizzes & Stats Summary */}
