@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, User, BookOpen, Trophy, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Home, User, BookOpen, Trophy, Star } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
@@ -14,6 +14,7 @@ import {
   SidebarGroupLabel,
   SidebarGroupContent,
   SidebarTrigger,
+  SidebarRail,
   useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
@@ -32,14 +33,23 @@ export function AppSidebar() {
 
   return (
     <Sidebar collapsible="icon" className="hidden md:flex border-r">
-      <SidebarHeader className="p-4 flex flex-row items-center justify-between">
-        <Link href="/" className={cn("flex items-center gap-2 transition-all duration-300", isCollapsed ? "opacity-0 w-0" : "opacity-100")}>
-          <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center shrink-0">
-            <Star className="text-primary-foreground h-5 w-5 fill-primary-foreground" />
-          </div>
-          <span className="text-lg font-bold font-headline text-primary whitespace-nowrap">Preparer au Concours</span>
-        </Link>
-        <SidebarTrigger />
+      <SidebarHeader className="p-4 flex flex-col gap-4">
+        <div className="flex items-center justify-between min-h-[32px]">
+          {!isCollapsed && (
+            <Link href="/" className="flex items-center gap-2 overflow-hidden whitespace-nowrap">
+              <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center shrink-0">
+                <Star className="text-primary-foreground h-5 w-5 fill-primary-foreground" />
+              </div>
+              <span className="text-lg font-bold font-headline text-primary">Preparer au Concours</span>
+            </Link>
+          )}
+          {isCollapsed && (
+            <div className="mx-auto">
+               <SidebarTrigger />
+            </div>
+          )}
+          {!isCollapsed && <SidebarTrigger />}
+        </div>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
@@ -60,6 +70,7 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarRail />
     </Sidebar>
   );
 }
