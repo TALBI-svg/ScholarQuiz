@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Home, RefreshCw, Loader2, Clock } from "lucide-react";
+import { ArrowRight, Home, RefreshCw, Loader2, Clock, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent } from "@/components/ui/card";
@@ -55,6 +55,11 @@ export function QuizSession({ category }: QuizSessionProps) {
     } else {
       setQuizComplete(true);
     }
+  };
+
+  const getCategoryTitle = (id: string) => {
+    if (id === 'math') return "Ministère de la Justice";
+    return id.charAt(0).toUpperCase() + id.slice(1);
   };
 
   if (loading) {
@@ -127,20 +132,25 @@ export function QuizSession({ category }: QuizSessionProps) {
     <div className="flex flex-col gap-8 p-6 min-h-screen max-w-3xl mx-auto">
       <div className="flex flex-col gap-6">
         <div className="flex items-center justify-between">
-          <Link href="/">
-            <Button variant="ghost" size="icon" className="rounded-full h-12 w-12 hover:bg-accent/20">
-              <Home className="h-6 w-6" />
-            </Button>
-          </Link>
-          <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full border border-primary/20">
-            <Clock className="h-5 w-5 text-primary" />
-            <span className="text-sm font-bold text-primary">02:45</span>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground overflow-hidden whitespace-nowrap">
+            <Link href="/" className="hover:text-primary transition-colors shrink-0 flex items-center gap-1">
+              <Home className="h-4 w-4" />
+              <span>Home</span>
+            </Link>
+            <ChevronRight className="h-3 w-3 shrink-0" />
+            <span className="font-bold text-foreground truncate">
+              {getCategoryTitle(category)}
+            </span>
           </div>
-          <span className="text-lg font-bold text-primary">
+          <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full border border-primary/20 shrink-0 ml-2">
+            <Clock className="h-4 w-4 text-primary" />
+            <span className="text-xs font-bold text-primary">02:45</span>
+          </div>
+          <span className="text-sm font-bold text-primary shrink-0 ml-2">
             {currentStep + 1} / {questions.length}
           </span>
         </div>
-        <Progress value={progress} className="h-3 rounded-full" />
+        <Progress value={progress} className="h-2 rounded-full" />
       </div>
 
       <AnimatePresence mode="wait">
