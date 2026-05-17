@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { label: "Home", icon: Home, href: "/" },
-  { label: "Quizzes", icon: BookOpen, href: "/home#categories" },
+  { label: "Quizzes", icon: BookOpen, href: "/#categories" },
   { label: "Stats", icon: Trophy, href: "/profile" },
   { label: "Profile", icon: User, href: "/profile" },
 ];
@@ -17,7 +17,7 @@ export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-card border-t border-border px-6 py-3 z-50 flex items-center justify-between">
+    <nav className="fixed bottom-0 left-0 w-full bg-card border-t border-border px-6 py-3 z-50 flex items-center justify-between md:hidden">
       {navItems.map((item) => {
         const isActive = pathname === item.href;
         return (

@@ -2,6 +2,8 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import {Toaster} from "@/components/ui/toaster";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/layout/AppSidebar";
 
 export const metadata: Metadata = {
   title: 'ScholarQuiz | Concours Exam Prep',
@@ -20,10 +22,15 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
-      <body className="font-body antialiased min-h-screen bg-background text-foreground pb-20 sm:pb-0">
-        <main className="max-w-md mx-auto min-h-screen bg-background shadow-xl sm:border-x border-border/50 relative">
-          {children}
-        </main>
+      <body className="font-body antialiased min-h-screen bg-background text-foreground">
+        <SidebarProvider defaultOpen={true}>
+          <div className="flex min-h-screen w-full">
+            <AppSidebar />
+            <main className="flex-1 w-full max-w-5xl mx-auto min-h-screen bg-background relative md:px-8">
+              {children}
+            </main>
+          </div>
+        </SidebarProvider>
         <Toaster />
       </body>
     </html>
