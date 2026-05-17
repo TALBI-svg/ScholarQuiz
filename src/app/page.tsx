@@ -37,7 +37,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Hero Action - Now White with Shadow */}
+      {/* Hero Action - White with Shadow */}
       <Card className="bg-card text-card-foreground border-none overflow-hidden shadow-md relative">
         <CardContent className="p-6 md:p-10">
           <div className="relative z-10 flex flex-col gap-4 max-w-full md:max-w-[60%]">
@@ -55,12 +55,12 @@ export default function HomePage() {
         </CardContent>
       </Card>
 
-      {/* Search Bar */}
-      <div className="relative max-w-2xl mx-auto w-full">
+      {/* Search Bar - Now matching Card width */}
+      <div className="relative w-full">
         <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
         <Input 
           placeholder="Search for subjects, topics, or previous concours..." 
-          className="pl-12 h-14 rounded-2xl bg-card border-none shadow-sm text-base"
+          className="pl-12 h-14 rounded-2xl bg-card border-none shadow-sm text-base w-full"
         />
       </div>
 
