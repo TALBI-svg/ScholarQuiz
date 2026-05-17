@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, User, BookOpen, Trophy, Star } from "lucide-react";
+import { Home, BookOpen, Star } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
@@ -22,8 +22,6 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { label: "Home", icon: Home, href: "/" },
   { label: "Quizzes", icon: BookOpen, href: "/#categories" },
-  { label: "Stats", icon: Trophy, href: "/profile" },
-  { label: "Profile", icon: User, href: "/profile" },
 ];
 
 export function AppSidebar() {
@@ -34,13 +32,15 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon" className="hidden md:flex border-r">
       <SidebarHeader className="p-4 flex flex-col gap-4">
-        <div className="flex items-center justify-between min-h-[32px]">
+        <div className="flex items-center justify-between min-h-[40px]">
           {!isCollapsed && (
-            <Link href="/" className="flex items-center gap-2 overflow-hidden whitespace-nowrap">
-              <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center shrink-0">
+            <Link href="/" className="flex items-center gap-3 pr-2 overflow-visible">
+              <div className="h-9 w-9 rounded-xl bg-primary flex items-center justify-center shrink-0 shadow-sm">
                 <Star className="text-primary-foreground h-5 w-5 fill-primary-foreground" />
               </div>
-              <span className="text-lg font-bold font-headline text-primary">Preparer au Concours</span>
+              <span className="text-lg font-bold font-headline text-primary leading-tight">
+                Preparer au Concours
+              </span>
             </Link>
           )}
           {isCollapsed && (
