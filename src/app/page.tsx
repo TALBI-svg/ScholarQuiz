@@ -1,4 +1,3 @@
-
 import { Search, Play, ChevronRight, BookOpen, Star } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -30,8 +29,8 @@ export default function HomePage() {
       {/* Header - Mobile Only (Hidden on Desktop because of Sidebar) */}
       <div className="flex items-center justify-between md:hidden">
         <div>
-          <h1 className="text-2xl font-bold font-headline text-primary">ScholarQuiz</h1>
-          <p className="text-muted-foreground text-sm">Prepare for your success</p>
+          <h1 className="text-xl font-bold font-headline text-primary">Preparer au Concours</h1>
+          <p className="text-muted-foreground text-xs">Prepare for your success</p>
         </div>
         <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
           <Star className="text-primary h-5 w-5 fill-primary" />
