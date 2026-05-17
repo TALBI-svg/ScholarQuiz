@@ -1,7 +1,8 @@
+
 import { generatePracticeQuestions, type GeneratePracticeQuestionsOutput } from "@/ai/flows/generate-practice-questions";
 
-// Import pre-defined quiz data
-import justiceQuiz from "@/data/quizzes/math/2024-01-07-justice.json";
+// Import pre-defined quiz data from the correct 'dev' category
+import justiceQuiz from "@/data/quizzes/dev/2024-01-07-justice.json";
 
 /**
  * Singleton QuestionService to manage and provide questions for the app.
