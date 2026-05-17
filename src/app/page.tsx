@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -90,7 +89,7 @@ export default function HomePage() {
               return (
                 <Link key={category.id} href={`/quiz/${category.id}`}>
                   <Card className="bg-card shadow-sm hover:shadow-md transition-all border border-border/50 rounded-3xl overflow-hidden cursor-pointer group">
-                    <div className="relative h-28 md:h-32 w-full bg-accent/5">
+                    <div className="relative h-40 md:h-48 w-full bg-accent/5">
                       <Image 
                         src={img?.imageUrl || ""} 
                         alt={category.name} 
