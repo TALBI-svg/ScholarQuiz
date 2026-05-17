@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -11,6 +10,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { type GeneratePracticeQuestionsOutput } from "@/ai/flows/generate-practice-questions";
 import { questionService } from "@/lib/question-service";
+import { timerService } from "@/lib/timer-service";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -25,13 +25,34 @@ export function QuizSession({ category }: QuizSessionProps) {
   const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(true);
   const [quizComplete, setQuizComplete] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(0);
+
+  // Subscribe to the TimerService (Observer Pattern)
+  useEffect(() => {
+    const unsubscribe = timerService.subscribe((seconds) => {
+      setTimeLeft(seconds);
+      if (seconds === 0 && !loading && !quizComplete && questions.length > 0) {
+        // Handle timeout if needed
+      }
+    });
+
+    return () => {
+      unsubscribe();
+      timerService.stop();
+    };
+  }, [loading, quizComplete, questions.length]);
 
   useEffect(() => {
     async function loadQuiz() {
       setLoading(true);
-      // Using the singleton service instance
       const data = await questionService.getQuestions(category);
       setQuestions(data);
+      
+      // Configure and start the timer once questions are loaded
+      // Here we configure it to 10 minutes (600 seconds) as an example
+      timerService.configure(600);
+      timerService.start();
+      
       setLoading(false);
     }
     loadQuiz();
@@ -44,7 +65,6 @@ export function QuizSession({ category }: QuizSessionProps) {
   const handleNext = () => {
     if (!selectedOption) return;
 
-    // Calculate score for the current question before moving forward
     if (selectedOption === questions[currentStep].correctAnswer) {
       setScore((prev) => prev + 1);
     }
@@ -54,7 +74,14 @@ export function QuizSession({ category }: QuizSessionProps) {
       setSelectedOption(null);
     } else {
       setQuizComplete(true);
+      timerService.stop();
     }
+  };
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
   const getCategoryTitle = (id: string) => {
@@ -144,7 +171,12 @@ export function QuizSession({ category }: QuizSessionProps) {
           </div>
           <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full border border-primary/20 shrink-0 ml-2">
             <Clock className="h-4 w-4 text-primary" />
-            <span className="text-xs font-bold text-primary">02:45</span>
+            <span className={cn(
+              "text-xs font-bold tabular-nums",
+              timeLeft < 60 ? "text-destructive animate-pulse" : "text-primary"
+            )}>
+              {formatTime(timeLeft)}
+            </span>
           </div>
           <span className="text-sm font-bold text-primary shrink-0 ml-2">
             {currentStep + 1} / {questions.length}
