@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, XCircle, ArrowRight, Home, RefreshCw, Loader2, Clock } from "lucide-react";
+import { ArrowRight, Home, RefreshCw, Loader2, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent } from "@/components/ui/card";
@@ -154,13 +154,14 @@ export function QuizSession({ category }: QuizSessionProps) {
           <div className="grid gap-4">
             {Object.entries(currentQuestion.options).map(([key, text]) => {
               const isSelected = selectedOption === key;
-              const isCorrect = key === currentQuestion.correctAnswer;
               
               let stateClasses = "bg-card border-border hover:border-primary/50 hover:bg-accent/5";
               if (isAnswered) {
-                if (isCorrect) stateClasses = "bg-green-50 border-green-500 text-green-700 ring-2 ring-green-500";
-                else if (isSelected) stateClasses = "bg-red-50 border-red-500 text-red-700 ring-2 ring-red-500";
-                else stateClasses = "bg-card border-border opacity-40 grayscale-[0.5]";
+                if (isSelected) {
+                  stateClasses = "bg-primary/5 border-primary text-primary ring-2 ring-primary/20";
+                } else {
+                  stateClasses = "bg-card border-border opacity-50";
+                }
               }
 
               return (
@@ -177,16 +178,13 @@ export function QuizSession({ category }: QuizSessionProps) {
                   <div className="flex items-center gap-5">
                     <span className={cn(
                       "flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-xl font-bold text-lg transition-colors",
-                      isAnswered && isCorrect ? "bg-green-500 text-white" : 
-                      isAnswered && isSelected ? "bg-red-500 text-white" :
+                      isAnswered && isSelected ? "bg-primary text-primary-foreground" : 
                       "bg-secondary group-hover:bg-primary/20 text-primary"
                     )}>
                       {key}
                     </span>
                     <span className="font-semibold text-base md:text-lg">{text}</span>
                   </div>
-                  {isAnswered && isCorrect && <CheckCircle2 className="h-6 w-6 md:h-8 md:w-8 text-green-600" />}
-                  {isAnswered && isSelected && !isCorrect && <XCircle className="h-6 w-6 md:h-8 md:w-8 text-red-500" />}
                 </button>
               );
             })}
