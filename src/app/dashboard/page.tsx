@@ -10,6 +10,7 @@ import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { useLoading } from "@/components/providers/LoadingProvider";
 import { useRouter } from "next/navigation";
+import { DashboardNavbar } from "@/components/layout/DashboardNavbar";
 
 const categories = [
   { id: "07-01-2024", name: "MINISTERE DE LA JUSTICE Date : 07/01/2024 Dev", count: "60+ Questions", color: "bg-blue-100", category: "dev" },
@@ -41,11 +42,14 @@ export default function DashboardPage() {
   );
 
   return (
-    <div className="flex flex-col gap-8 p-6 w-full max-w-6xl mx-auto">
-      {/* Header - Mobile Only */}
+    <div className="flex flex-col w-full max-w-6xl mx-auto">
+      <DashboardNavbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      
+      <div className="flex flex-col gap-8 p-6 pt-4">
+        {/* Header - Mobile Only */}
       <div className="flex items-center justify-between md:hidden">
         <div>
-          <h1 className="text-xl font-bold font-headline text-primary">Preparer au Concours</h1>
+          <h1 className="text-xl font-bold font-headline text-primary">ScholarQuiz</h1>
           <p className="text-muted-foreground text-xs">Prepare for your success</p>
         </div>
         <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
@@ -70,17 +74,6 @@ export default function DashboardPage() {
           </div>
         </CardContent>
       </Card>
-
-      {/* Search Bar */}
-      <div className="relative w-full">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-        <Input 
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search for subjects, topics, or previous concours..." 
-          className="pl-12 h-14 rounded-2xl bg-card border-none shadow-sm text-base w-full"
-        />
-      </div>
 
       {/* Categories */}
       <section id="categories">
@@ -121,6 +114,7 @@ export default function DashboardPage() {
           </div>
         )}
       </section>
+      </div>
     </div>
   );
 }

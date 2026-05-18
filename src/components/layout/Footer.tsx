@@ -17,7 +17,7 @@ export function Footer() {
   return (
     <footer className="w-full py-10 px-6 border-t border-border/40 text-center mt-auto pb-32 md:pb-10">
       <p className="text-sm text-muted-foreground">
-        &copy; {year || "..."} Preparer au Concours. All rights reserved.
+        © {year || "..."} <span className="font-bold text-primary">ScholarQuiz</span>. Tous droits réservés.
       </p>
       <p className="text-sm text-muted-foreground mt-2">
         Developed by{" "}

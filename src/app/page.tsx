@@ -32,7 +32,7 @@ export default function LandingPage() {
               <span>#1 CONCOURS PREP PLATFORM</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-black font-headline text-foreground leading-tight mb-6">
-              Maîtrisez vos <span className="text-primary">Concours</span> avec l'IA
+              Maîtrisez vos <span className="text-primary">Concours</span> avec ScholarQuiz
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
               Préparez-vous efficacement avec des quiz personnalisés, des simulations réelles et un suivi de performance intelligent.
@@ -83,7 +83,7 @@ export default function LandingPage() {
       <section id="features" className="py-20 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Pourquoi choisir Concours Prep?</h2>
+            <h2 className="text-3xl font-bold mb-4">Pourquoi choisir ScholarQuiz?</h2>
             <p className="text-muted-foreground">Une approche moderne pour des résultats exceptionnels.</p>
           </div>
 
@@ -143,9 +143,14 @@ export default function LandingPage() {
             <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
               <Star className="text-primary-foreground h-4 w-4 fill-primary-foreground" />
             </div>
-            <span className="text-lg font-bold text-primary">Concours Prep</span>
+            <span className="text-lg font-bold text-primary">ScholarQuiz</span>
           </div>
-          <p className="text-sm text-muted-foreground">© 2026 Concours Prep. Tous droits réservés.</p>
+          <div className="text-center">
+            <p className="text-sm text-muted-foreground">© 2026 ScholarQuiz. All rights reserved.</p>
+            <p className="text-sm text-muted-foreground mt-1">
+              Developed by <a href="https://talbi-svg.github.io/AbdelkaderTalbi.github.io/" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline">DevSphere</a>
+            </p>
+          </div>
           <div className="flex gap-6 text-sm font-bold text-muted-foreground">
             <Link href="#" className="hover:text-primary transition-colors">Confidentialité</Link>
             <Link href="#" className="hover:text-primary transition-colors">Contact</Link>

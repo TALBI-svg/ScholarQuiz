@@ -41,7 +41,7 @@ export function AppSidebar() {
                 <Star className="text-primary-foreground h-5 w-5 fill-primary-foreground" />
               </div>
               <span className="text-lg font-bold font-headline text-primary leading-tight">
-                Preparer au Concours
+                ScholarQuiz
               </span>
             </Link>
           )}

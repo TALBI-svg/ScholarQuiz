@@ -8,7 +8,7 @@ import { BottomNav } from "@/components/layout/BottomNav";
 import { LoadingProvider } from "@/components/providers/LoadingProvider";
 
 export const metadata: Metadata = {
-  title: 'Preparer au Concours | Concours Prep',
+  title: 'ScholarQuiz | Concours Prep',
   description: 'A modern mobile-first quiz app for students preparing for concours.',
 };
 
