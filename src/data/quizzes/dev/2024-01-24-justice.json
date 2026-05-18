@@ -1,0 +1,669 @@
+{
+  "id": "justice-2024-09-29",
+  "title": "Concour Ministre de Justice 29-09-2024)",
+  "category": "MINISTERE DE LA JUSTICE",
+  "date": "2024-09-29",
+  "timeLimit": 5400,
+  "questions": [
+    {
+      "id": 1,
+      "questionText": "La date de la mise en œuvre de la nouvelle loi de l'organisation judiciaire :",
+      "options": {
+        "A": "Janvier 2021",
+        "B": "Janvier 2022",
+        "C": "Janvier 2023",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": 2,
+      "questionText": "L'administration centrale du Ministère de la Justice est dotée de :",
+      "options": {
+        "A": "Cinq Directions Centrales",
+        "B": "Neuf Directions Centrales",
+        "C": "Huit Directions Centrales",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 3,
+      "questionText": "Selon le décret 2.23.665 relatif à la nouvelle carte judiciaire du royaume, les tribunaux de commerce sont au nombre de :",
+      "options": {
+        "A": "Sept tribunaux",
+        "B": "Huit tribunaux",
+        "C": "Neuf tribunaux",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": 4,
+      "questionText": "Le Premier Président de la Cour de Cassation est :",
+      "options": {
+        "A": "Le Président du Ministère Public",
+        "B": "Le Ministre de la Justice",
+        "C": "Le Président du Conseil Supérieur du Pouvoir Judiciaire",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "id": 5,
+      "questionText": "Qu'est-ce que la B2B ?",
+      "options": {
+        "A": "Une pratique commerciale Internet s'adressant aux particuliers",
+        "B": "Une connexion directe entre deux ordinateurs",
+        "C": "Une pratique commerciale Internet s'adressant aux entreprises",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": 6,
+      "questionText": "IIS signifie ____ ?",
+      "options": {
+        "A": "Information Intranet Services",
+        "B": "Internet Information Système",
+        "C": "Intranet Information Server",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "id": 7,
+      "questionText": "Qu'est-ce que le SMTP ?",
+      "options": {
+        "A": "Un protocole de transmission de courrier électronique",
+        "B": "Un protocole de réception de courrier électronique sécurisé",
+        "C": "Un protocole réseau pour internet",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": 8,
+      "questionText": "La GED est :",
+      "options": {
+        "A": "Un système informatisé d'acquisition de documents",
+        "B": "Un système informatisé de gestion financière",
+        "C": "Un système d'archivage de documents",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": 9,
+      "questionText": "Quel énoncé est faux à propos de Web Service ?",
+      "options": {
+        "A": "Il est invoqué dynamiquement par d'autres services",
+        "B": "Il est encapsulé dans une couche de standards dérivés du langage XML.",
+        "C": "Un Web Service est un composant complexe implémenté dans un langage précis",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": 10,
+      "questionText": "Quel est le numéro de port tcp par défaut de https ?",
+      "options": {
+        "A": "80",
+        "B": "1024",
+        "C": "227",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "id": 11,
+      "questionText": "Les fichiers Vues (view) dans Laravel se terminent par :",
+      "options": {
+        "A": "blade.php",
+        "B": "blade",
+        "C": "view",
+        "D": "Toutes les réponses fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": 12,
+      "questionText": "Qu'est-ce qu'un trigger (un déclencheur) ?",
+      "options": {
+        "A": "Un Easter Egg permettant de démarrer un jeu accessible via la connexion à la base de données",
+        "B": "Ce concept n'existe pas en SQL",
+        "C": "Une technique pour optimiser la vitesse d'accès aux données.",
+        "D": "Toutes les réponses fausses"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "id": 13,
+      "questionText": "Dans la méthode Merise le concept de synchronisation est relatif au ?",
+      "options": {
+        "A": "Diagramme de flux",
+        "B": "MCT",
+        "C": "MLD",
+        "D": "Toutes les réponses fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 14,
+      "questionText": "Qu'est-ce qui représente un attribut dans une base de données relationnelle ?",
+      "options": {
+        "A": "Colonne",
+        "B": "Ligne",
+        "C": "Objet",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": 15,
+      "questionText": "Un logiciel open-source est :",
+      "options": {
+        "A": "Logiciel gratuit",
+        "B": "Logiciel propriétaire",
+        "C": "Logiciel dont on peut obtenir le code source",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": 16,
+      "questionText": "Quel est le nombre de colonnes par défaut dans le système de grille de Bootstrap ?",
+      "options": {
+        "A": "6",
+        "B": "8",
+        "C": "12",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": 17,
+      "questionText": "Quelle propriété permet d'activer la numérotation automatique d'un champ ?",
+      "options": {
+        "A": "AUTO_NUM",
+        "B": "AUTO_INCREMENT",
+        "C": "INCREMENT",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 18,
+      "questionText": "Lequel des outils suivant n'est pas un IDE :",
+      "options": {
+        "A": "Eclipse",
+        "B": "Apache",
+        "C": "Visual studio",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 19,
+      "questionText": "Comment valider une transaction (SQL) ?",
+      "options": {
+        "A": "SAVE TRANSACTION",
+        "B": "END TRANSACTION",
+        "C": "COMMIT",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": 20,
+      "questionText": "Quel est le type de jointure SQL valide ?",
+      "options": {
+        "A": "JOINER",
+        "B": "INNER JOIN",
+        "C": "LEFT RIGHT JOIN",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 21,
+      "questionText": "Lequel des diagrammes suivant ne fait pas partie des diagrammes UML (Unified Modeling Language) ?",
+      "options": {
+        "A": "Diagramme de classe",
+        "B": "Diagramme de Gantt",
+        "C": "Diagramme de séquence",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 22,
+      "questionText": "En orienté objet, le terme design patterns se traduit par des :",
+      "options": {
+        "A": "Entités graphiques",
+        "B": "Patrons de conception",
+        "C": "Dessins de caractères",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 23,
+      "questionText": "AJAX peut servir à :",
+      "options": {
+        "A": "Exécuter des contrôles ActiveX",
+        "B": "Interroger un serveur web via requêtes XML ou JSON",
+        "C": "Exécuter JavaScript sur un serveur",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 24,
+      "questionText": "Quel résultat affiche le code suivant ?\n<?php \n$var = 'false'; \nIf ($var) {echo 'true';}  \nElse {echo 'false'} \n?>",
+      "options": {
+        "A": "True",
+        "B": "False",
+        "C": "Error",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": 25,
+      "questionText": "Dans Java, une classe peut hériter de plusieurs classes mères en même temps :",
+      "options": {
+        "A": "Oui",
+        "B": "Oui depuis la version 5.0",
+        "C": "Non",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": 26,
+      "questionText": "Comment fusionner les cellules horizontales d'un tableau ?",
+      "options": {
+        "A": "En supprimant la balise td",
+        "B": "Avec la balise <colspan>",
+        "C": "Avec la balise <hr>",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "id": 27,
+      "questionText": "Quelle directive du php.ini peut empêcher la création de 'sessions' avec session_start() ?",
+      "options": {
+        "A": "Session=\"0\"",
+        "B": "Session_PHP=\"0\"",
+        "C": "session.auto_start=\"0\"",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "id": 28,
+      "questionText": "La balise HTML qui spécifie un style CSS intégré dans un élément est appelée ?",
+      "options": {
+        "A": "Design",
+        "B": "Style",
+        "C": "Modify",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 29,
+      "questionText": "En CSS, si vous voulez ajouter une marge entre la bordure d'une DIV et son texte intérieur, on utilise la propriété :",
+      "options": {
+        "A": "Spacing",
+        "B": "Padding",
+        "C": "Margin",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 30,
+      "questionText": "PERT et GANTT sont :",
+      "options": {
+        "A": "Des langages",
+        "B": "Des outils de planification",
+        "C": "Des protocoles internet",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 31,
+      "questionText": "Quelle est la principale différence entre une classe abstraite et une interface en Java ?",
+      "options": {
+        "A": "Une interface peut avoir des méthodes implémentées, une classe abstraite ne peut pas.",
+        "B": "Une classe abstraite peut avoir des méthodes implémentées, une interface ne peut avoir que des méthodes abstraites.",
+        "C": "Une classe abstraite ne peut pas avoir de constructeur, une interface peut",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "id": 32,
+      "questionText": "Quelle est la syntaxe correcte pour créer une nouvelle classe en C# ?",
+      "options": {
+        "A": "New class myclass { }",
+        "B": "Class MyClass { }",
+        "C": "MyClass class { }",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "id": 33,
+      "questionText": "Quel est le but principal d'un ORM en développement logiciel ?",
+      "options": {
+        "A": "Optimiser le code JavaScript",
+        "B": "Mapper les objets en base de données relationnelle",
+        "C": "Sécuriser les applications web",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 34,
+      "questionText": "Angular Js est basé sur ________ ?",
+      "options": {
+        "A": "Architecture MVC",
+        "B": "Architecture MVVM",
+        "C": "Pattern Observer",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "id": 35,
+      "questionText": "En java une classe qui implémente une interface doit :",
+      "options": {
+        "A": "Implémenter le constructeur de l'interface",
+        "B": "Implémenter les méthodes utiles de l'interface",
+        "C": "Implémenter toutes les méthodes définies dans cette interface",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": 36,
+      "questionText": "Pour afficher que les classes de 30 élèves dans l'instruction suivante en SQL :\n'Select lib_classe, count(*) from v_classe_eleve group by lib_classe'",
+      "options": {
+        "A": "Ajouter la clause having count(*)=30 après de group by",
+        "B": "Ajouter la clause where count(*)=30 après de group by",
+        "C": "Ajouter la clause count(*)=30 après le where",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": 37,
+      "questionText": "Pour améliorer le référencement d'un site, on peut utiliser :",
+      "options": {
+        "A": "Un titre décrit dans l'en tête de la page web entre les balises <Title> et </Title>",
+        "B": "Un contenu transparent qui comporte un maximum de texte, indexable par les moteurs",
+        "C": "Indiquer en début de page HTML (body) le nom des principaux moteurs de recherche",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": 38,
+      "questionText": "Quelle commande est utilisée pour supprimer une table existante ?",
+      "options": {
+        "A": "DROP TABLE",
+        "B": "DELETE",
+        "C": "Les deux : 'DROP TABLE' et 'DELETE'",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": 39,
+      "questionText": "Quels sont les résultats des requêtes suivantes si 'ville' est une colonne déclarée INTEGER ?\nSELECT * FROM table_villes WHERE ville = '8'\nSELECT * FROM table_villes WHERE ville = 8",
+      "options": {
+        "A": "Les deux sont identiques",
+        "B": "La première requête génère une erreur",
+        "C": "La deuxième requête génère une erreur",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": 40,
+      "questionText": "Quelle est la syntaxe correcte pour faire référence à un script externe appelé 'myscript.js' ?",
+      "options": {
+        "A": "<script href=\"myscript.js\">",
+        "B": "<script name=\"myscript.js\">",
+        "C": "<script src=\"myscript.js\">",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": 41,
+      "questionText": "Comment écrire une condition IF pour vérifier si 'var' n'est PAS égal à 2 en JavaScript ?",
+      "options": {
+        "A": "if var <>2",
+        "B": "if (var != 2)",
+        "C": "if (var <>2)",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 42,
+      "questionText": "Quelle est la syntaxe correcte pour vérifier la valeur de 'c' en JavaScript ?",
+      "options": {
+        "A": "if (c =\"XYZ\") then {  } else {  }",
+        "B": "if (c = \"XYZ\") then {  } else {  }",
+        "C": "if (c == \"XYZ\") {  } else {  }",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": 43,
+      "questionText": "Quelle méthode renvoie les caractères d'une chaîne comprise entre l'indice de départ et un certain nombre de caractères en JavaScript ?",
+      "options": {
+        "A": "substr()",
+        "B": "getSubstring()",
+        "C": "slice()",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": 44,
+      "questionText": "Si str = 'VWXYZ', que retourne str.charAt(3) ?",
+      "options": {
+        "A": "X",
+        "B": "Y",
+        "C": "Z",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 45,
+      "questionText": "Qu'est-ce qu'un View dans MVC ?",
+      "options": {
+        "A": "View est responsable d'agir et de traiter les données.",
+        "B": "View représente une vue de base de données.",
+        "C": "View est responsable de l'affichage des données à l'utilisateur.",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": 46,
+      "questionText": "Quelle directive initialise une application Angular JS ?",
+      "options": {
+        "A": "ng-init",
+        "B": "ng-app",
+        "C": "ngSrc",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 47,
+      "questionText": "Lequel des éléments suivants est un concept POO en Java ?",
+      "options": {
+        "A": "Héritage",
+        "B": "Polymorphisme",
+        "C": "Encapsulation",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "id": 48,
+      "questionText": "XML :",
+      "options": {
+        "A": "Est un format de description de données",
+        "B": "Ne permet pas de séparer le contenu de la présentation",
+        "C": "N'est pas portable d'une plateforme à une autre",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": 49,
+      "questionText": "Qu'est-ce que va afficher le code C# suivant ?\nint i = 10;\nfor( ; ; )\n{\nConsole.Write(i + \" \");\nif (i >= -5)\ni -= 2 ;\nelse\nbreak ;\n}",
+      "options": {
+        "A": "10 8 6 4 2 0",
+        "B": "10 8 6 4 2 0 -4 -8",
+        "C": "10 8 6 4 2 0 -2 -4 -6",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": 50,
+      "questionText": "Quel est le tag à utiliser pour placer une image ?",
+      "options": {
+        "A": "<image src=\"\" alt=\"\">",
+        "B": "<img source=\"\" alt=\"\">",
+        "C": "<img src=\"\" alt=\"\">",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": 51,
+      "questionText": "Quel diagramme permet d'illustrer un cas réel en représentant les liens entre les instances",
+      "options": {
+        "A": "Diagramme de cas d'utilisation",
+        "B": "Diagramme de collaboration",
+        "C": "Diagramme d'objets",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": 52,
+      "questionText": "Dans une base de données relationnelle, on souhaite connaître tous les enregistrements de la table COMMANDE pour laquelle il n'y a aucun client :",
+      "options": {
+        "A": "Select * from COMMANDE where all client is null",
+        "B": "Select * from COMMANDE where num_client is null",
+        "C": "Select * from CLIENT where num_com NOT IN (select num_nom from CLIENT)",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 53,
+      "questionText": "Quel diagramme permet de représenter les détails d'un cas d'utilisation ?",
+      "options": {
+        "A": "Diagramme de cas d'utilisation",
+        "B": "Diagramme de séquence",
+        "C": "Diagramme d'objets",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 54,
+      "questionText": "Lequel des serveurs web suivant traitent les demandes Client entrantes sur la base des évènements ?",
+      "options": {
+        "A": "Apache",
+        "B": "IIS",
+        "C": "NGINX",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": 55,
+      "questionText": "Lequel des outils suivants n'est pas un outil de gestion des versions ?",
+      "options": {
+        "A": "Bitbucket",
+        "B": "Microsoft Azure Backup",
+        "C": "Jira",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": 56,
+      "questionText": "Quelle est la commande utilisée pour installer un projet Laravel ?",
+      "options": {
+        "A": "Composer create-project laravel/laravel monprojet",
+        "B": "Composer new-project laravel/laravel monprojet",
+        "C": "Composer create new laravel/laravel monprojet",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": 57,
+      "questionText": "Laquelle des méthodes suivante est utilisé dans le Framework symfony ?",
+      "options": {
+        "A": "Auth::logout()",
+        "B": "Auth::check()",
+        "C": "Auth::user()",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "id": 58,
+      "questionText": "Dans symfony quel est le rôle du composant Finder ?",
+      "options": {
+        "A": "Offre des classes courantes pour la recherche de fichiers et de dossiers dans un chemin d'accès donné",
+        "B": "Fournit de nombreuses méthodes pour définir les critères de recherche",
+        "C": "Recherche les fichiers et répertoires en fonction de différents critères",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "id": 59,
+      "questionText": "Quel énoncé est faux concernant la différence entre MERISE et UML ?",
+      "options": {
+        "A": "Merise est une méthode d'analyse, de conception et de gestion de projet intégrée",
+        "B": "UML est un langage permettant d'utiliser toute méthode orientée objet",
+        "C": "Merise est beaucoup plus vaste et s'intéresse aux techniques de modélisation des données autant que des traitements dans le paradigme objet",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": 60,
+      "questionText": "Quel design pattern fournit une interface unifiée facile à utiliser pour un ensemble d'interfaces dans un sous-système ?",
+      "options": {
+        "A": "Prototype",
+        "B": "Iterator",
+        "C": "Observer",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "D"
+    }
+  ]
+}

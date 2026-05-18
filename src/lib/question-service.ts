@@ -1,7 +1,8 @@
 import { generatePracticeQuestions, type GeneratePracticeQuestionsOutput } from "@/ai/flows/generate-practice-questions";
 
 // Import pre-defined quiz data from the correct 'dev' category
-import justiceQuiz from "@/data/quizzes/dev/2024-01-07-justice.json";
+import justiceQuiz07 from "@/data/quizzes/dev/2024-01-07-justice.json";
+import justiceQuiz24 from "@/data/quizzes/dev/2024-01-24-justice.json";
 
 /**
  * Singleton QuestionService to manage and provide questions for the app.
@@ -12,8 +13,8 @@ class QuestionService {
   
   // Registry of available local concours files
   private localQuizzes: Record<string, any[]> = {
-    dev: [justiceQuiz],
-    physics: [],
+    "07-01-2024": [justiceQuiz07],
+    "29-09-2024": [justiceQuiz24],
     history: [],
     biology: [],
     literature: [],

@@ -1,114 +1,157 @@
 "use client";
 
-import { useState } from "react";
-import { Search, Play, BookOpen, Star } from "lucide-react";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Star, BookOpen, CheckCircle2, Trophy, Rocket, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
-import { BottomNav } from "@/components/layout/BottomNav";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { motion } from "framer-motion";
+import { useLoading } from "@/components/providers/LoadingProvider";
+import { useRouter } from "next/navigation";
 
-const categories = [
-  { id: "dev", name: "MINISTERE DE LA JUSTICE Date : 07/01/2024 Dev", count: "120+ Questions", color: "bg-blue-100" },
-  { id: "physics", name: "Physics", count: "85+ Questions", color: "bg-purple-100" },
-  { id: "history", name: "History", count: "200+ Questions", color: "bg-orange-100" },
-  { id: "biology", name: "Biology", count: "90+ Questions", color: "bg-green-100" },
-  { id: "literature", name: "Literature", count: "150+ Questions", color: "bg-red-100" },
-  { id: "chemistry", name: "Chemistry", count: "110+ Questions", color: "bg-cyan-100" },
-];
+export default function LandingPage() {
+  const { setIsLoading } = useLoading();
+  const router = useRouter();
 
-export default function HomePage() {
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const filteredCategories = categories.filter((category) =>
-    category.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    category.id.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const handleStart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    router.push("/dashboard");
+  };
 
   return (
-    <div className="flex flex-col gap-8 p-6">
-      {/* Header - Mobile Only */}
-      <div className="flex items-center justify-between md:hidden">
-        <div>
-          <h1 className="text-xl font-bold font-headline text-primary">Preparer au Concours</h1>
-          <p className="text-muted-foreground text-xs">Prepare for your success</p>
+    <div className="flex flex-col min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="relative py-20 px-6 overflow-hidden bg-gradient-to-b from-primary/5 to-background">
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6">
+              <Star className="h-3 w-3 fill-current" />
+              <span>#1 CONCOURS PREP PLATFORM</span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black font-headline text-foreground leading-tight mb-6">
+              Maîtrisez vos <span className="text-primary">Concours</span> avec l'IA
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
+              Préparez-vous efficacement avec des quiz personnalisés, des simulations réelles et un suivi de performance intelligent.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/dashboard" onClick={handleStart}>
+                <Button size="lg" className="h-14 px-10 rounded-2xl font-bold text-lg gap-2 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">
+                  Commencer maintenant <ArrowRight className="h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="/#features">
+                <Button variant="outline" size="lg" className="h-14 px-10 rounded-2xl font-bold text-lg bg-card">
+                  En savoir plus
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
         </div>
-        <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-          <Star className="text-primary h-5 w-5 fill-primary" />
-        </div>
-      </div>
 
-      {/* Hero Action */}
-      <Card className="bg-card text-card-foreground border-none overflow-hidden shadow-md relative">
-        <CardContent className="p-6 md:p-10">
-          <div className="relative z-10 flex flex-col gap-4 max-w-full md:max-w-[60%]">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary">Ready to practice for your next concours?</h2>
-            <p className="text-muted-foreground text-sm md:text-base">Jump into a quick AI-powered quiz session tailored to your current level and targets.</p>
-            <Link href="/quiz/dev">
-              <Button variant="default" size="lg" className="mt-2 w-fit rounded-full gap-2 font-semibold px-8 shadow-sm">
-                <Play className="h-5 w-5 fill-current" /> Start Practice
-              </Button>
-            </Link>
-          </div>
-          <div className="absolute right-0 bottom-0 opacity-5 md:opacity-10 pointer-events-none hidden sm:block">
-            <BookOpen className="h-48 w-48 md:h-64 md:w-64 -rotate-12 translate-x-8 translate-y-8" />
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Search Bar */}
-      <div className="relative w-full">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-        <Input 
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search for subjects, topics, or previous concours..." 
-          className="pl-12 h-14 rounded-2xl bg-card border-none shadow-sm text-base w-full"
-        />
-      </div>
-
-      {/* Categories */}
-      <section id="categories">
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-bold font-headline">Concours Categories</h3>
-          <Button variant="link" className="text-primary p-0">See all</Button>
-        </div>
-        
-        {filteredCategories.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            {filteredCategories.map((category) => {
-              const img = PlaceHolderImages.find(p => p.id === category.id) || PlaceHolderImages.find(p => p.id === 'dev');
-              return (
-                <Link key={category.id} href={`/quiz/${category.id}`}>
-                  <Card className="bg-card shadow-sm hover:shadow-md transition-all border border-border/50 rounded-3xl overflow-hidden cursor-pointer group">
-                    <div className="relative h-40 md:h-48 w-full bg-accent/5">
-                      <Image 
-                        src={img?.imageUrl || ""} 
-                        alt={category.name} 
-                        fill 
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        data-ai-hint={img?.imageHint}
-                      />
-                    </div>
-                    <CardContent className="p-3">
-                      <p className="font-bold text-[10px] md:text-xs leading-tight min-h-[3rem] line-clamp-3">{category.name}</p>
-                      <p className="text-[10px] text-muted-foreground mt-1">{category.count}</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-              );
-            })}
-          </div>
-        ) : (
-          <div className="text-center py-12 bg-card rounded-3xl shadow-sm">
-            <p className="text-muted-foreground">No categories found matching "{searchQuery}"</p>
-          </div>
-        )}
+        {/* Decorative elements */}
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
       </section>
 
-      <BottomNav />
+      {/* Stats Section */}
+      <section className="py-12 border-y border-border/50 bg-card/50">
+        <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="text-center">
+            <p className="text-3xl font-black text-primary">10k+</p>
+            <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Candidats</p>
+          </div>
+          <div className="text-center">
+            <p className="text-3xl font-black text-primary">50+</p>
+            <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Concours Corrigés</p>
+          </div>
+          <div className="text-center">
+            <p className="text-3xl font-black text-primary">95%</p>
+            <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Taux de Réussite</p>
+          </div>
+          <div className="text-center">
+            <p className="text-3xl font-black text-primary">24/7</p>
+            <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Accès Concours</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">Pourquoi choisir Concours Prep?</h2>
+            <p className="text-muted-foreground">Une approche moderne pour des résultats exceptionnels.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-8 rounded-[2.5rem] bg-card border border-border shadow-sm hover:shadow-md transition-all group">
+              <div className="h-14 w-14 rounded-2xl bg-blue-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Rocket className="h-7 w-7 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Apprentissage Rapide</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Notre algorithme identifie vos lacunes et vous propose les questions les plus pertinentes.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-[2.5rem] bg-card border border-border shadow-sm hover:shadow-md transition-all group">
+              <div className="h-14 w-14 rounded-2xl bg-purple-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Trophy className="h-7 w-7 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Simulations Réelles</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Entraînez-vous dans les conditions réelles des concours avec notre système de chrono intégré.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-[2.5rem] bg-card border border-border shadow-sm hover:shadow-md transition-all group">
+              <div className="h-14 w-14 rounded-2xl bg-green-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <CheckCircle2 className="h-7 w-7 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Corrections Détaillées</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Comprenez vos erreurs grâce à des explications complètes pour chaque question.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-20 px-6 bg-primary text-primary-foreground text-center">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black mb-6">Prêt à réussir votre prochain concours?</h2>
+          <p className="text-primary-foreground/80 mb-10 text-lg">
+            Rejoignez des milliers d'étudiants qui utilisent déjà notre plateforme pour atteindre leurs objectifs.
+          </p>
+          <Link href="/dashboard" onClick={handleStart}>
+            <Button size="lg" variant="secondary" className="h-14 px-12 rounded-2xl font-black text-lg">
+              Commencer Gratuitement
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-6 border-t border-border/50">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex items-center gap-3">
+            <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
+              <Star className="text-primary-foreground h-4 w-4 fill-primary-foreground" />
+            </div>
+            <span className="text-lg font-bold text-primary">Concours Prep</span>
+          </div>
+          <p className="text-sm text-muted-foreground">© 2026 Concours Prep. Tous droits réservés.</p>
+          <div className="flex gap-6 text-sm font-bold text-muted-foreground">
+            <Link href="#" className="hover:text-primary transition-colors">Confidentialité</Link>
+            <Link href="#" className="hover:text-primary transition-colors">Contact</Link>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

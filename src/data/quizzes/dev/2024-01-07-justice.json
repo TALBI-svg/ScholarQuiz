@@ -1,34 +1,609 @@
-
 {
   "id": "justice-2024-01-07",
-  "title": "MINISTERE DE LA JUSTICE Date : 07/01/2024 Dev",
+  "title": "Concour Ministre de Justice 07-01-2024",
   "category": "MINISTERE DE LA JUSTICE",
   "date": "2024-01-07",
+  "timeLimit": 5400,
   "questions": [
     {
-      "questionText": "Quelle est la juridiction compétente pour le contentieux administratif en premier ressort ?",
-      "options": { "A": "Le Tribunal de Grande Instance", "B": "Le Tribunal Administratif", "C": "La Cour d'Appel", "D": "Le Conseil d'État" },
-      "correctAnswer": "B"
-    },
-    {
-      "questionText": "Qui est le chef du parquet dans un tribunal de grande instance ?",
-      "options": { "A": "Le Procureur de la République", "B": "Le Juge d'Instruction", "C": "Le Président du Tribunal", "D": "L'Huissier" },
+      "questionText": "Un logiciel open-source est :",
+      "options": {
+        "A": "Logiciel dont on peut obtenir le code source",
+        "B": "Logiciel gratuit",
+        "C": "Logiciel propriétaire",
+        "D": "Toutes les réponses sont fausses"
+      },
       "correctAnswer": "A"
     },
     {
-      "questionText": "Quel est l'âge minimum pour être juré d'assises ?",
-      "options": { "A": "18 ans", "B": "21 ans", "C": "23 ans", "D": "25 ans" },
+      "questionText": "Qu'est-ce qu'un DNS ?",
+      "options": {
+        "A": "Domain Name System",
+        "B": "Domain Name Space",
+        "C": "Digital Name System",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "questionText": "En informatique, le SSO est :",
+      "options": {
+        "A": "Un service d'identification",
+        "B": "Un service d'autorisation",
+        "C": "Un service d'authentification",
+        "D": "Un service de confidentialité"
+      },
       "correctAnswer": "C"
     },
     {
-      "questionText": "Sous quelle autorité sont placés les magistrats du parquet ?",
-      "options": { "A": "Le Conseil Supérieur de la Magistrature", "B": "Le Garde des Sceaux", "C": "Le Premier Ministre", "D": "Le Président de la République" },
+      "questionText": "Qu'est-ce que la B2B ?",
+      "options": {
+        "A": "Une pratique Internet adoptée par des associations",
+        "B": "Une pratique commerciale Internet s'adressant aux particuliers",
+        "C": "Une pratique commerciale Internet s'adressant aux entreprises",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "questionText": "La GED :",
+      "options": {
+        "A": "Un système informatisé d'acquisition de documents",
+        "B": "Un système informatisé de gestion financière",
+        "C": "Un système d'archivage de documents",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "questionText": "En gestion de projet on appelle la maitrise d'ouvrage :",
+      "options": {
+        "A": "le client",
+        "B": "le prestataire",
+        "C": "la société chargée de l'accompagnement",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "questionText": "Quelle norme est relative à la gestion de projet ?",
+      "options": {
+        "A": "ISO 21500",
+        "B": "ISO 9001",
+        "C": "ISO 14000",
+        "D": "ISO 27001"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "questionText": "Quel est le principe fondamental de la méthodologie Agile ?",
+      "options": {
+        "A": "livrer rapidement des versions complètes du logiciel",
+        "B": "Suivre un plan rigide du début à la fin du projet",
+        "C": "Minimiser la documentation sur les fonctionnalités principales",
+        "D": "ignorer les retours des utilisateurs"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "questionText": "Dans une stratégie de veille stratégique (Business Intelligence), lequel de ces éléments est indispensable ?",
+      "options": {
+        "A": "Entrepôt de données",
+        "B": "Intelligence artificielle",
+        "C": "Systèmes de gestion de qualité",
+        "D": "Gestion de la relation client (CRM)"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "questionText": "Quelle est la différence entre un langage procédural et un langage orienté objet ?",
+      "options": {
+        "A": "le langage procédural est plus simple à apprendre que le langage orienté objet",
+        "B": "le langage procédural est plus performant que le langage orienté objet",
+        "C": "le langage procédural est plus simple et modulaire que le langage orienté objet",
+        "D": "le langage orienté objet est plus modulaire que le langage procédural"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "questionText": "Quelle est la différence entre une exception et une erreur ?",
+      "options": {
+        "A": "Une exception est une erreur qui est détectée par le programme",
+        "B": "Une erreur est une exception qui n'est pas détectée par le programme",
+        "C": "Une exception est une erreur qui peut être traitée par le programme",
+        "D": "Une erreur est une exception qui ne peut pas être traitée par le programme"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "questionText": "Le PERT (Program Evaluation and Review Technique) est :",
+      "options": {
+        "A": "Un langage de programmation",
+        "B": "Un protocole internet",
+        "C": "Un outil de planification",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "questionText": "Qu'est-ce qu'un modèle MVC (Modèle-Vue-Contrôleur) ?",
+      "options": {
+        "A": "Un language de programmation",
+        "B": "Un design pattern architectural",
+        "C": "Une systeme degestion de base donnees",
+        "D": "Un methode de cryptage"
+      },
       "correctAnswer": "B"
     },
     {
-      "questionText": "Quelle est la peine maximale pour un crime ?",
-      "options": { "A": "20 ans", "B": "30 ans", "C": "Réclusion criminelle à perpétuité", "D": "10 ans" },
+      "questionText": "Qu'est-ce qu'un contrôleur dans MVC ?",
+      "options": {
+        "A": "C'est un code logiciel qui rend l'interface utilisateur",
+        "B": "C'est un code logiciel qui stocke les donnees",
+        "C": "Il s'agit d'un code logiciel qui controle les interactions entre le model et la vue",
+        "D": "Toutes les réponses sont fausses"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "questionText": "Qu'est-ce qu'un émulateur dans le contexte du développement mobile ?",
+      "options": {
+        "A": "Un outil pour tester la vitesse de la connexion reseau",
+        "B": "Un evironnement virtual qui simule le comportement d'un appareil mobile",
+        "C": "Un outil de compression de fichier",
+        "D": "Un outil pour deboguer des applications web"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Quelle est la principale étape du processus d'analyse dans la méthode Merise ?",
+      "options": {
+        "A": "Modélisation des flux",
+        "B": "Modélisation des donnees",
+        "C": "Modélisation des traitements",
+        "D": "Modélisation des interfaces"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "questionText": "Quelle diagramme UML est utilise pour modeliser les interactions entre differents objets a une instant ?",
+      "options": {
+        "A": "diagramme de classe",
+        "B": "diagramme de sequence",
+        "C": "diagramme de cas d'utilisation",
+        "D": "diagramme d'etat"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Qu'est-ce que le responsive design en developpement web ?",
+      "options": {
+        "A": "Un design qui reagit aux emotions des utilisateurs",
+        "B": "Un design qui s'adapte a differentes tailles d'ecrans et dispositifs",
+        "C": "Un design base sur les commentaires des utilisateurs",
+        "D": "Un design qui repond aux demandes des serveur en temps reel"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Quel est le concept cle derriere la programmation orientee objet",
+      "options": {
+        "A": "Encapsulation, Heritage, Polymorphisme",
+        "B": "Reflexion, Genericite, Exception",
+        "C": "Interaction, Recursion, Abstraction",
+        "D": "Condition, Boucles, Fonctions"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "questionText": "Quel(s) diagramme(s) permet(tent) d'illustrer un cas reel en representant les liens entre les instances",
+      "options": {
+        "A": "Diagramme de cas d'utilisation",
+        "B": "Diagramme de collaborations",
+        "C": "Diagramme d'objets",
+        "D": "Toutes les responses sont fausses"
+      },
       "correctAnswer": "C"
+    },
+    {
+      "questionText": "En UML quel est le diagramme qui sert a presenter les instances de classes utilise dans le systeme?",
+      "options": {
+        "A": "diagramme de sequences",
+        "B": "diagramme d'objet",
+        "C": "diagramme de classe",
+        "D": "diagramme de composants"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Quel est le role d'un Framework ?",
+      "options": {
+        "A": "Fournir une structure de base pour le developpement d'applications",
+        "B": "Automatiser les taches repetitives",
+        "C": "Fournir une API pour acceder a des fonctionnalites specifiques",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "questionText": "Quel est le role d'une autorite de certification dans le contexte des certificats SSL?",
+      "options": {
+        "A": "Gerer les adresses IP des serveurs",
+        "B": "Emettre et signer des certificats SSL",
+        "C": "Fournir des adresses IP publiques",
+        "D": "Gerer les bases de donnees"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Quelle est la difference entre un service web REST et un service web SOAP?",
+      "options": {
+        "A": "le service web REST utilise le protocole HTTP, le service web SOAP utilise le protocole SOAP",
+        "B": "le service web REST est plus simple que le service web SOAP",
+        "C": "le service web REST est plus performant que le service SOAP",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "questionText": "Quelle est la difference entre une variable locale et une variable globale ?",
+      "options": {
+        "A": "la variable locale est accessible uniquement dans la fonction dans laquelle elle est declaree, la variable globale est accessible dans toutes les fonctions",
+        "B": "la variable locale est declaree with le mot-cle local, la variable globale est declaree with le mot-cle global",
+        "C": "la variable locale est declaree with le mot-cle var, la variable globale est declaree with le mot-cle const",
+        "D": "toutes les reponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "questionText": "Quelle affirmation est fausse",
+      "options": {
+        "A": "Un programme ecrit dans un langage dit 'compile' va etre traduit une fois pour toutes par un programme annexe (le compilateur) afin de generer un nouveau fichier qui sera autonome",
+        "B": "Un programme ecrit dans un langage interprete a besoin d'un programme auxiliaire (l'interpreteur) pour traduire au fur et a mesure les instructions du programme",
+        "C": "Le langage utilise par le processeur c'est-a-dire les donnees telles qu'elles lui arrivant est appele langage machine, il s'agit de donnees elementaires de 0 a F en hexadecimal",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "questionText": "Le HTML est un langage dit:",
+      "options": {
+        "A": "Encode",
+        "B": "Crypte",
+        "C": "Balise",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "questionText": "Quelle est la principale difference entre GET et POST dans les requetes HTTP ?",
+      "options": {
+        "A": "GET est utilise pour envoyer des donnees sensibles, POST pour des donnees non sensibles",
+        "B": "GET est plus securise que POST",
+        "C": "GET est utilise pour recuperer des donnees du serveur, POST pour envoyer des donnees au serveur",
+        "D": "GET a des limitations de taille pour les donnees, POST n'en a pas"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "questionText": "Comment se nomme le principe internet selon lequel l'information doit etre rapportee a l'internet avant qu'il ne la demande ?",
+      "options": {
+        "A": "Push",
+        "B": "Net casting",
+        "C": "Reporting",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "questionText": "Comment nomme-t-on une variable contenant l'adresse d'une autre variable",
+      "options": {
+        "A": "Un variant",
+        "B": "Une reference",
+        "C": "Un pointeur",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "questionText": "Quelle structure de donnees est la plus appropriee pour representer un ensemble d'elements uniques sans ordre specifique ?",
+      "options": {
+        "A": "Tableau (Array)",
+        "B": "Liste (List)",
+        "C": "Pile (Stack)",
+        "D": "Ensemble (Set)"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "questionText": "Quelle est la syntaxe correcte pour faire reference a un script externe appele 'myscript.js' ?",
+      "options": {
+        "A": "<script href=\"myscript.js\">",
+        "B": "<script name=\"myscript.js\">",
+        "C": "<script src=\"myscript.js\">",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "questionText": "Comment inserer un commentaire dans un fichier CSS",
+      "options": {
+        "A": "\"ceci est un commentaire\"",
+        "B": "// ceci est un commentaire//",
+        "C": "<!-- ceci est un commentaire -->",
+        "D": "/* ceci est un commentaire */"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "questionText": "Quel est le type d'evenement qui est declenche lorsque le navigateur web demande une ressource",
+      "options": {
+        "A": "un evenement request",
+        "B": "un evenement response",
+        "C": "un evenement error",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "questionText": "Quelle est la sortie (output) du code javascript suivant ?\nvar numbers=[\"One\",\"Two\",\"Three\"];\nconsole.log(numbers.length);",
+      "options": {
+        "A": "[\"One\",\"Two\",\"Three\"]",
+        "B": "3",
+        "C": "\"Three\"",
+        "D": "Error"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Quel est le role du fichier \"README.md\" dans un projet GitHub?",
+      "options": {
+        "A": "Stocker les dependances du projet",
+        "B": "Fournir des instructions sur la façon d'utiliser le projet",
+        "C": "Contenir le code source principal du projet",
+        "D": "Enregistrer les erreurs et les bugs connus"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Qu'est-ce que Bootstrap dans le contexte du developpement web ?",
+      "options": {
+        "A": "Un langage de programmation",
+        "B": "Un Framework CSS",
+        "C": "Un gestionnaire de base de donnees",
+        "D": "Un systeme de controle de version"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Quelle est la difference entre 'margin' et 'padding' en CSS ?",
+      "options": {
+        "A": "Margin est l'espace a l'interieur d'un element, padding a l'exterieur",
+        "B": "Margin est l'espace a l'exterieur d'un element, padding a l'interieur",
+        "C": "Ils sont utilises de maniere interchangeable",
+        "D": "Margin et padding sont deux noms pour la meme propriete CSS"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Quelle est la fonction de l'element <meta charset=\"UTF-8\"> dans le code HTML ?",
+      "options": {
+        "A": "Definir la couleur de fond de la page",
+        "B": "Specifier le jeu de caracteres utilise dans le document",
+        "C": "Ajouter des metadonnees pour le referencement",
+        "D": "Creer des zones de texte modifiables"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Quelle fonctionnalite de C# permet de gerer les erreurs et les exceptions dans le code",
+      "options": {
+        "A": "try/except",
+        "B": "handle/raise",
+        "C": "try/catch",
+        "D": "handle/catch"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "questionText": "Qu'est-ce que va afficher le code C# suivant ?\nint i = 10;\nfor( ; ; )\n{\n  Console.Write(i + \" \");\n  if(i >= -5)\n    i -= 2;\n  else\n    break;\n}",
+      "options": {
+        "A": "10 8 6 4 2 0",
+        "B": "10 8 6 4 2 0 -2 -4 -6 -8",
+        "C": "10 8 6 4 2 0 -2 -4 -6",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "questionText": "Quel enonce est faux a propos d'un web service ?",
+      "options": {
+        "A": "Il est invoque dynamiquement par d'autres services",
+        "B": "Il est encapsule dans une couche de standards derives du langage XML",
+        "C": "Il est deploye sur n'importe quelle plate-forme",
+        "D": "Un web service est un composant complexe implemente dans un langage precis"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "questionText": "Un fichier java compile aura comme extension",
+      "options": {
+        "A": "java",
+        "B": "class",
+        "C": "exe",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Tout XML doit avoir:",
+      "options": {
+        "A": "Une balise de fermeture",
+        "B": "Un element racine (root)",
+        "C": "Une instance d'objets",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Lequel des attributs est obligatoire dans la balise <img> ?",
+      "options": {
+        "A": "src",
+        "B": "href",
+        "C": "id",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "questionText": "Lorsqu'une page .aspx est demandee au serveur web, le resultat est rendu au navigateur dans le format suivant :",
+      "options": {
+        "A": "XML",
+        "B": "HTML",
+        "C": "WML",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Lesquels des langages suivants sont utilises pour ecrire des scripts cote serveur en ASP.NET ?",
+      "options": {
+        "A": "VB",
+        "B": "C-sharp",
+        "C": "PHP",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Qu'est-ce que Node.js ?",
+      "options": {
+        "A": "Un navigateur web",
+        "B": "Un framework JavaScript",
+        "C": "Un moteur de base de donnees",
+        "D": "Un environnement d'execution JavaScript cote serveur"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "questionText": "Que signifie l'acronyme SGBDR ?",
+      "options": {
+        "A": "Systeme de Gestion de Bases de Donnees de Resolution",
+        "B": "Systeme de Gestion de Bases de Donnees Reparties",
+        "C": "Systeme de Gestion de Base de Donnees Relationnelle",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "questionText": "Quel type de champ serait utilise dans une structure de base de donnees pour une adresse e-mail ?",
+      "options": {
+        "A": "Text",
+        "B": "OUINON",
+        "C": "Number",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "questionText": "Que signifie ODBC ?",
+      "options": {
+        "A": "Open Database Control",
+        "B": "Open Database Connectivity",
+        "C": "Open dynamique Base Connectivity",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Comment trier les resultats d'une requete SELECT par ordre croissant ?",
+      "options": {
+        "A": "ORDER BY ASC",
+        "B": "ORDER BY DESC",
+        "C": "SORT DESC",
+        "D": "SORT ASC"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "questionText": "Quelle clause SQL est utilisee pour exclure les doublons des resultats d'une requete SELECT ?",
+      "options": {
+        "A": "UNIQUE",
+        "B": "DISTINCT",
+        "C": "DIFFERENT",
+        "D": "NO DUPLICATES"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Quelle clause SQL est utilisee pour specifier des criteres de regroupement apres l'execution d'une clause GROUP BY ?",
+      "options": {
+        "A": "FILTER",
+        "B": "WHERE",
+        "C": "HAVING",
+        "D": "LIMIT"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "questionText": "Qu'est-ce qu'un trigger (declencheur) ?",
+      "options": {
+        "A": "La frame Egg permettant de demarrer un jeu accessible via la connexion a la base de donnees",
+        "B": "Un mecanisme de declenchement automatique d'une action suite a un evenement sur un element de la base de donnees",
+        "C": "Une technique pour optimiser la vitesse d'acces aux donnees",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Quelle fonction SQL est utilisee pour calculer la moyenne d'une colonne numerique ?",
+      "options": {
+        "A": "COUNT",
+        "B": "AVG",
+        "C": "SUM",
+        "D": "MAX"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "questionText": "Quel type de jointure retournera toutes les lignes lorsque des correspondances existent et des valeurs nulles pour les colonnes non appariees ?",
+      "options": {
+        "A": "INNER JOIN",
+        "B": "LEFT JOIN",
+        "C": "RIGHT JOIN",
+        "D": "FULL OUTER JOIN"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "questionText": "Quelle commande SQL est utilisee pour valider une transaction dans SQL Server ?",
+      "options": {
+        "A": "COMMIT",
+        "B": "ROLLBACK",
+        "C": "SAVEPOINT",
+        "D": "BEGIN TRANSACTION"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "questionText": "Pour SQL server, quelle est la commande SQL correcte pour supprimer la table ma_table ?",
+      "options": {
+        "A": "DROP TABLE ma_table",
+        "B": "DROP DATABASE ma_table",
+        "C": "DROP ma_table",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "questionText": "Quel protocole est utilise pour transmettre les paquets de donnees sur Internet ?",
+      "options": {
+        "A": "IPX/SPX",
+        "B": "TCP/IP",
+        "C": "HTTP",
+        "D": "Toutes les reponses sont fausses"
+      },
+      "correctAnswer": "B"
     }
   ]
 }

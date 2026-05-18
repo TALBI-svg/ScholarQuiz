@@ -13,13 +13,21 @@ import { questionService } from "@/lib/question-service";
 import { timerService } from "@/lib/timer-service";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { useLoading } from "@/components/providers/LoadingProvider";
 
 interface QuizSessionProps {
   category: string;
 }
 
 export function QuizSession({ category }: QuizSessionProps) {
+  const { setIsLoading } = useLoading();
   const [questions, setQuestions] = useState<GeneratePracticeQuestionsOutput>([]);
+
+  useEffect(() => {
+    // Reset global loading state when the component mounts
+    setIsLoading(false);
+  }, [setIsLoading]);
+
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [score, setScore] = useState(0);
@@ -44,7 +52,13 @@ export function QuizSession({ category }: QuizSessionProps) {
       const data = await questionService.getQuestions(category);
       setQuestions(data);
       
-      timerService.configure(data.length * 120);
+      // Check for custom time limit in local concours metadata
+      const availableConcours = questionService.getAvailableConcours(category);
+      const currentConcours = availableConcours[0];
+      const customTimeLimit = currentConcours?.timeLimit;
+      
+      const duration = customTimeLimit || (data.length * 120);
+      timerService.configure(duration);
       timerService.start();
       
       setLoading(false);
@@ -73,8 +87,13 @@ export function QuizSession({ category }: QuizSessionProps) {
   };
 
   const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
+    const hrs = Math.floor(seconds / 3600);
+    const mins = Math.floor((seconds % 3600) / 60);
     const secs = seconds % 60;
+    
+    if (hrs > 0) {
+      return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 

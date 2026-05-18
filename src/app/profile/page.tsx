@@ -19,7 +19,7 @@ const favoriteSubjects = [
 
 export default function ProfilePage() {
   return (
-    <div className="flex flex-col gap-8 p-6">
+    <div className="flex flex-col gap-8 p-6 max-w-5xl mx-auto w-full">
       {/* Header */}
       <div className="flex items-center justify-between">
         <h1 className="text-2xl md:text-3xl font-bold font-headline">My Profile</h1>

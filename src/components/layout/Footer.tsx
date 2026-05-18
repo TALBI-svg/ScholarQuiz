@@ -2,13 +2,17 @@
 
 import { useState, useEffect } from "react";
 import Link from 'next/link';
+import { usePathname } from "next/navigation";
 
 export function Footer() {
   const [year, setYear] = useState<number | null>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     setYear(new Date().getFullYear());
   }, []);
+
+  if (pathname === "/") return null;
 
   return (
     <footer className="w-full py-10 px-6 border-t border-border/40 text-center mt-auto pb-32 md:pb-10">

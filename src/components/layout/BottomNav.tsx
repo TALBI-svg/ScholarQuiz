@@ -6,12 +6,14 @@ import { Home, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "Home", icon: Home, href: "/" },
-  { label: "Quizzes", icon: BookOpen, href: "/#categories" },
+  { label: "Home", icon: Home, href: "/dashboard" },
+  { label: "Quizzes", icon: BookOpen, href: "/dashboard#categories" },
 ];
 
 export function BottomNav() {
   const pathname = usePathname();
+
+  if (pathname === "/") return null;
 
   return (
     <nav className="fixed bottom-0 left-0 w-full bg-card border-t border-border px-8 py-4 z-50 flex items-center justify-around md:hidden">

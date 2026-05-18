@@ -20,8 +20,8 @@ import {
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "Home", icon: Home, href: "/" },
-  { label: "Quizzes", icon: BookOpen, href: "/#categories" },
+  { label: "Home", icon: Home, href: "/dashboard" },
+  { label: "Quizzes", icon: BookOpen, href: "/dashboard#categories" },
 ];
 
 export function AppSidebar() {
@@ -29,8 +29,10 @@ export function AppSidebar() {
   const { state } = useSidebar();
   const isCollapsed = state === "collapsed";
 
+  if (pathname === "/") return null;
+
   return (
-    <Sidebar collapsible="icon" className="hidden md:flex border-r">
+    <Sidebar collapsible="icon" className="hidden md:flex">
       <SidebarHeader className="p-4 flex flex-col gap-4">
         <div className="flex items-center justify-between min-h-[40px]">
           {!isCollapsed && (

@@ -1,16 +1,16 @@
 {
   "placeholderImages": [
     {
-      "id": "dev",
+      "id": "07-01-2024",
       "description": "Ministère de la Justice Icon",
-      "imageUrl": "https://picsum.photos/seed/justice/400/400",
+      "imageUrl": "/images/placeholder.png",
       "imageHint": "law justice"
     },
     {
-      "id": "physics",
-      "description": "Physics category icon",
-      "imageUrl": "https://picsum.photos/seed/physics/400/400",
-      "imageHint": "physics science"
+      "id": "29-09-2024",
+      "description": "Concours Ministre de Justice Icon",
+      "imageUrl": "/images/placeholder.png",
+      "imageHint": "law justice"
     },
     {
       "id": "history",
