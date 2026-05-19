@@ -16,10 +16,7 @@ import { getAssetPath } from "@/lib/utils";
 const categories = [
   { id: "07-01-2024", name: "MINISTERE DE LA JUSTICE Date : 07/01/2024 Dev", count: "60+ Questions", color: "bg-blue-100", category: "dev" },
   { id: "29-09-2024", name: "MINISTERE DE LA JUSTICE Date : 29/09/2024 Dev", count: "60+ Questions", color: "bg-purple-100", category: "dev" },
-  { id: "history", name: "History", count: "200+ Questions", color: "bg-orange-100", category: "dev" },
-  { id: "biology", name: "Biology", count: "90+ Questions", color: "bg-green-100", category: "dev" },
-  { id: "literature", name: "Literature", count: "150+ Questions", color: "bg-red-100", category: "dev" },
-  { id: "chemistry", name: "Chemistry", count: "110+ Questions", color: "bg-cyan-100", category: "dev" },
+  { id: "coming-soon", name: "More categories and concours coming soon incha2llah", count: "", color: "bg-gray-100", category: "placeholder", isPlaceholder: true },
 ];
 
 export default function DashboardPage() {
@@ -87,25 +84,41 @@ export default function DashboardPage() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
             {filteredCategories.map((category) => {
               const img = PlaceHolderImages.find(p => p.id === category.id) || PlaceHolderImages.find(p => p.id === '07-01-2024');
-              const href = `/quiz/${category.id}`;
-              return (
-                <Link key={category.id} href={href} onClick={(e) => handleQuizClick(e, href)}>
-                  <Card className="bg-card shadow-sm hover:shadow-md transition-all border border-border/50 rounded-3xl overflow-hidden cursor-pointer group">
-                    <div className="relative h-36 md:h-44 w-full bg-accent/5">
-                      <Image 
-                        src={getAssetPath(img?.imageUrl || "")} 
-                        alt={category.name} 
-                        fill 
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        data-ai-hint={img?.imageHint}
-                      />
-                    </div>
-                    <CardContent className="p-3">
-                      <p className="font-bold text-[10px] md:text-xs leading-tight min-h-[3rem] line-clamp-3">{category.name}</p>
-                      <p className="text-[10px] text-muted-foreground mt-1">{category.count}</p>
-                    </CardContent>
-                  </Card>
-                </Link>
+              const href = (category as any).isPlaceholder ? "#" : `/quiz/${category.id}`;
+              
+              const CardWrapper = ({ children }: { children: React.ReactNode }) => (
+                 (category as any).isPlaceholder ? (
+                   <div key={category.id} className="h-full">{children}</div>
+                 ) : (
+                   <Link key={category.id} href={href} onClick={(e) => handleQuizClick(e, href)} className="h-full block">
+                     {children}
+                   </Link>
+                 )
+               );
+ 
+               return (
+                 <CardWrapper key={category.id}>
+                   <Card className={`h-full bg-card shadow-sm hover:shadow-md transition-all border border-border/50 rounded-3xl overflow-hidden ${(category as any).isPlaceholder ? 'cursor-default opacity-80' : 'cursor-pointer group'}`}>
+                     <div className="relative h-36 md:h-44 w-full bg-accent/5">
+                       <Image 
+                         src={getAssetPath(img?.imageUrl || "")} 
+                         alt={category.name} 
+                         fill 
+                         className={`object-cover ${!(category as any).isPlaceholder && 'group-hover:scale-105 transition-transform duration-500'}`}
+                         data-ai-hint={img?.imageHint}
+                       />
+                       {(category as any).isPlaceholder && (
+                         <div className="absolute inset-0 bg-background/40 backdrop-blur-[1px] flex items-center justify-center p-4">
+                           <span className="text-primary text-[10px] md:text-xs font-bold text-center">Coming Soon</span>
+                         </div>
+                       )}
+                     </div>
+                     <CardContent className="p-3 flex flex-col h-full">
+                       <p className="font-bold text-[10px] md:text-xs leading-tight min-h-[3rem] line-clamp-3">{category.name}</p>
+                       <p className="text-[10px] text-muted-foreground mt-1">{category.count || <span className="opacity-0">.</span>}</p>
+                     </CardContent>
+                   </Card>
+                 </CardWrapper>
               );
             })}
           </div>
