@@ -1,4 +1,3 @@
-'use server';
 /**
  * @fileOverview A Genkit flow for generating practice questions for concours.
  *
@@ -47,6 +46,11 @@ export type GeneratePracticeQuestionsOutput = z.infer<
 export async function generatePracticeQuestions(
   input: GeneratePracticeQuestionsInput
 ): Promise<GeneratePracticeQuestionsOutput> {
+  // AI generation is only possible during build (if triggered) or on a server.
+  // For static export (GitHub Pages), we skip this on the client side.
+  if (typeof window !== 'undefined') {
+    return [];
+  }
   return generatePracticeQuestionsFlow(input);
 }
 

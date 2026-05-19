@@ -1,4 +1,5 @@
-import { generatePracticeQuestions, type GeneratePracticeQuestionsOutput } from "@/ai/flows/generate-practice-questions";
+// import { generatePracticeQuestions, type GeneratePracticeQuestionsOutput } from "@/ai/flows/generate-practice-questions";
+import { type GeneratePracticeQuestionsOutput } from "@/ai/flows/generate-practice-questions";
 
 // Import pre-defined quiz data from the correct 'dev' category
 import justiceQuiz07 from "@/data/quizzes/dev/2024-01-07-justice.json";
@@ -47,16 +48,20 @@ class QuestionService {
 
     // 2. Fallback to AI generation
     try {
-      const data = await generatePracticeQuestions({
-        concoursCategory: category,
-        difficultyLevel: "Medium",
-        numberOfQuestions: count,
-      });
-      
-      if (data && data.length > 0) {
-        return data;
+      // Dynamic import to avoid bundling Node.js modules for the client
+      if (typeof window === 'undefined') {
+        const { generatePracticeQuestions } = await import("@/ai/flows/generate-practice-questions");
+        const data = await generatePracticeQuestions({
+          concoursCategory: category,
+          difficultyLevel: "Medium",
+          numberOfQuestions: count,
+        });
+        
+        if (data && data.length > 0) {
+          return data;
+        }
       }
-      throw new Error("No data returned from AI");
+      throw new Error("AI generation is not available in this environment");
     } catch (error) {
       console.warn(`AI Quiz generation failed for ${category}, using generic fallback`);
       return this.getFallbackQuestions(category);
