@@ -34,6 +34,7 @@ const QuestionSchema = z.object({
     .describe('The multiple-choice options for the question.'),
   correctAnswer:
     z.enum(['A', 'B', 'C', 'D']).describe('The letter corresponding to the correct option.'),
+  explanation: z.string().optional().describe('An explanation for why the answer is correct.'),
 });
 
 const GeneratePracticeQuestionsOutputSchema = z
@@ -53,7 +54,7 @@ const prompt = ai.definePrompt({
   name: 'generatePracticeQuestionsPrompt',
   input: {schema: GeneratePracticeQuestionsInputSchema},
   output: {schema: GeneratePracticeQuestionsOutputSchema},
-  prompt: `You are an expert quiz question generator for concours. Your task is to create multiple-choice questions.\n\nGenerate exactly {{{numberOfQuestions}}} practice questions for the "{{{concoursCategory}}}" category at a "{{{difficultyLevel}}}" difficulty level.\n\nEach question must have:\n- A 'questionText' field for the question itself.\n- An 'options' object with four fields (A, B, C, D) for the choices.\n- A 'correctAnswer' field indicating the correct option (A, B, C, or D).\n\nEnsure the questions are challenging and relevant to concours. Provide only the JSON output.`,
+  prompt: `You are an expert quiz question generator for concours. Your task is to create multiple-choice questions.\n\nGenerate exactly {{{numberOfQuestions}}} practice questions for the "{{{concoursCategory}}}" category at a "{{{difficultyLevel}}}" difficulty level.\n\nEach question must have:\n- A 'questionText' field for the question itself.\n- An 'options' object with four fields (A, B, C, D) for the choices.\n- A 'correctAnswer' field indicating the correct option (A, B, C, or D).\n- An 'explanation' field providing a brief explanation of why the answer is correct.\n\nEnsure the questions are challenging and relevant to concours. Provide only the JSON output.`,
 });
 
 const generatePracticeQuestionsFlow = ai.defineFlow(

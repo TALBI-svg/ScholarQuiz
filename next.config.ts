@@ -2,6 +2,8 @@ import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
+  output: 'export', // Required for GitHub Pages
+  // basePath: '/scholar-quiz', // Uncomment and update if deploying to a subdirectory
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -9,6 +11,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',

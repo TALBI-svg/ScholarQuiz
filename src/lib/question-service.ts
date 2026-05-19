@@ -68,7 +68,8 @@ class QuestionService {
       {
         questionText: `Prepare for your ${category} concours. Ready to begin?`,
         options: { A: "Yes, let's go!", B: "I need a moment", C: "Maybe later", D: "Tell me more" },
-        correctAnswer: "A"
+        correctAnswer: "A",
+        explanation: "Selecting 'Yes' is the best way to start your journey to success!"
       }
     ];
   }

@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, BookOpen, Star } from "lucide-react";
+import { Home, BookOpen } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
@@ -36,10 +36,7 @@ export function AppSidebar() {
       <SidebarHeader className="p-4 flex flex-col gap-4">
         <div className="flex items-center justify-between min-h-[40px]">
           {!isCollapsed && (
-            <Link href="/" className="flex items-center gap-3 pr-2 overflow-visible">
-              <div className="h-9 w-9 rounded-xl bg-primary flex items-center justify-center shrink-0 shadow-sm">
-                <Star className="text-primary-foreground h-5 w-5 fill-primary-foreground" />
-              </div>
+            <Link href="/" className="flex items-center pr-2 overflow-visible">
               <span className="text-lg font-bold font-headline text-primary leading-tight">
                 ScholarQuiz
               </span>
