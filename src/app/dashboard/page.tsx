@@ -11,6 +11,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { useLoading } from "@/components/providers/LoadingProvider";
 import { useRouter } from "next/navigation";
 import { DashboardNavbar } from "@/components/layout/DashboardNavbar";
+import { getAssetPath } from "@/lib/utils";
 
 const categories = [
   { id: "07-01-2024", name: "MINISTERE DE LA JUSTICE Date : 07/01/2024 Dev", count: "60+ Questions", color: "bg-blue-100", category: "dev" },
@@ -92,7 +93,7 @@ export default function DashboardPage() {
                   <Card className="bg-card shadow-sm hover:shadow-md transition-all border border-border/50 rounded-3xl overflow-hidden cursor-pointer group">
                     <div className="relative h-36 md:h-44 w-full bg-accent/5">
                       <Image 
-                        src={img?.imageUrl || ""} 
+                        src={getAssetPath(img?.imageUrl || "")} 
                         alt={category.name} 
                         fill 
                         className="object-cover group-hover:scale-105 transition-transform duration-500"

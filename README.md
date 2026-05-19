@@ -53,10 +53,11 @@ ScholarQuiz est une plateforme moderne et intuitive dédiée à la préparation 
 Le projet est configuré pour un déploiement automatique sur **GitHub Pages** via GitHub Actions.
 
 - **Build Statis** : Le projet utilise `output: 'export'` pour générer des fichiers statiques.
+- **Chemins des Assets** : Utilisation d'un helper `getAssetPath` pour garantir que les images et fichiers dans `public/` fonctionnent correctement avec le `basePath` de GitHub Pages.
 - **Workflow** : Toute modification poussée sur la branche `main` déclenche automatiquement le déploiement.
 
 *Note : Les fonctionnalités d'IA nécessitent un environnement serveur. En mode statique (GitHub Pages), l'application utilise les concours locaux et les fallbacks.*
 
 ---
 
-Développé avec ❤️ par **DevSphere**
+Développé avec ❤️ par [DevSphere](https://talbi-svg.github.io/AbdelkaderTalbi.github.io/)
