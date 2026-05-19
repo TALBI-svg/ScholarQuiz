@@ -7,7 +7,6 @@ ScholarQuiz est une plateforme moderne et intuitive dédiée à la préparation 
 - **Double Mode d'Entraînement** :
   - **Mode Préparation** : Apprentissage interactif avec feedback immédiat et explications détaillées après chaque question.
   - **Mode Examen** : Simulation des conditions réelles de concours sans feedback jusqu'à la fin de la session.
-- **Génération de Questions par IA** : Utilisation de l'IA (Google Gemini via Genkit) pour générer des questions de pratique personnalisées selon la catégorie et la difficulté.
 - **Banque de Concours Réels** : Accès à des archives de concours réels (ex: Ministère de la Justice).
 - **Tableau de Bord Intuitif** : Recherche et filtrage facile par catégories de concours.
 - **Design Mobile-First** : Interface responsive optimisée pour une utilisation sur smartphone, tablette et ordinateur.
